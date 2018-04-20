@@ -47,7 +47,7 @@ SubShader {
 					(d - b) * u.x * u.y;
 		}
 
-		#define NUM_OCTAVES 5
+		#define NUM_OCTAVES 1
 
 		float fbm ( in float2 _st) {
 			float v = 0.0;
@@ -101,7 +101,7 @@ SubShader {
 		}
 
 		float4 frag(v2f_img i) : COLOR {
-			float fill = filling(_MainTex, _MainTex_TexelSize, i.uv + fbm(i.pos * _Time.x * 1000) * 0.00000005);
+			float fill = filling(_MainTex, _MainTex_TexelSize, i.uv + fbm(random(i.uv) * random(_Time.x) * 1000) * 0.00000004);
 			
 			// float4 x = tex2D(_MainTex, i.uv);
 			// x.a = 1.0f;
