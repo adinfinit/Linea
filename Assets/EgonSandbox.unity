@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 14382941}
   - component: {fileID: 14382946}
   - component: {fileID: 14382945}
+  - component: {fileID: 14382947}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -167,7 +168,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7.76
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -222,6 +223,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lineWidth: 1
   iterations: 3
+--- !u!114 &14382947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 14382940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffc9f92364878c84e9c1781deff2abac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 525522093}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &255045562
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,6 +387,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxSpeed: 10
   JumpForce: 400
+  groundCheck: {x: 0, y: -1.32, z: 0}
+  groundRadius: 0.3
 --- !u!61 &525522095
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -466,7 +482,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 525522093}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.4028682, y: 0.395, z: -6.3125}
+  m_LocalPosition: {x: -2.2, y: -2.39, z: -6.3125}
   m_LocalScale: {x: 1, y: 2.281468, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
