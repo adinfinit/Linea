@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae0543fe805424df99fe08ce744cbe49, type: 3}
+  m_Name: default
+  m_EditorClassIdentifier: 
+  m_PoseEntries:
+  - path: bones/New bone
+    localPosition: {x: -0.49893665, y: -3.2330275, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.68987644, w: 0.72392714}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: bones/New bone/New bone
+    localPosition: {x: 0.9186121, y: 0.000000059604645, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.049648028, w: 0.9987668}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: bones/New bone/New bone/hand1
+    localPosition: {x: 4.994198, y: -0.000000015599653, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.99866366, w: 0.051680613}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: bones/New bone/New bone/hand1/New bone
+    localPosition: {x: 3.0623655, y: 0, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.80641574, w: 0.591349}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: bones/New bone/New bone/hand1 (1)
+    localPosition: {x: 4.6503196, y: 0.012758487, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.94352156, w: 0.3313112}
+    localScale: {x: 1.0000007, y: 1.0000007, z: 1}
+  - path: bones/New bone/New bone/hand1 (1)/New bone
+    localPosition: {x: 2.0729554, y: -0.000000059604645, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.3865338, w: 0.9222753}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: bones/New bone/New bone/leg1
+    localPosition: {x: -0.96893334, y: 0.51500475, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.9962415, w: 0.08661925}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: bones/New bone/New bone/leg1/New bone
+    localPosition: {x: 2.1791718, y: -0.000000029802322, z: 0}
+    localRotation: {x: 0, y: 0, z: 0, w: 1}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: bones/New bone/New bone/leg2
+    localPosition: {x: -0.87683636, y: -0.67643267, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.96730334, w: 0.25362232}
+    localScale: {x: 1.0000001, y: 1.0000001, z: 1}
+  - path: bones/New bone/New bone/leg2/New bone
+    localPosition: {x: 2.1791718, y: -0.000000029802322, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.4737971, w: 0.880634}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: bones/New bone/New bone/New bone
+    localPosition: {x: 5.7979574, y: -0.40582865, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.5971868, w: 0.80210227}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: bones/New bone/New bone/New bone/head
+    localPosition: {x: 0.5981905, y: 0.000000029802322, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.5199346, w: 0.8542061}
+    localScale: {x: 1, y: 1, z: 1}
