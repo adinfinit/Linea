@@ -2,39 +2,59 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
-    public float MaxSpeed = 10f;
-    public float JumpForce = 400f;
+public class PlayerController : MonoBehaviour
+{
+	public float MaxSpeed = 10f;
+	public float JumpForce = 400f;
 
-    private Rigidbody2D body;
-    bool grounded = false;
+	Animator animator;
+	bool facingRight = true;
 
-    public Vector3 groundCheck;
-    public float groundRadius = 0.3f;
+	private Rigidbody2D body;
+	bool grounded = false;
 
-    void Start()
-    {
-        body = GetComponent<Rigidbody2D>();
-    }
+	public Vector3 groundCheck;
+	public float groundRadius = 0.3f;
 
-    void FixedUpdate()
-    {
-        float move = Input.GetAxis("Horizontal");
-        body.velocity = new Vector2(move * MaxSpeed, body.velocity.y);
-        if (Input.GetButtonDown("Jump"))
-        {
-            body.AddForce(new Vector2(0f, JumpForce));
-        }
-    }
+	void Start ()
+	{
+		body = GetComponent<Rigidbody2D> ();
+		animator = GetComponent<Animator> ();
+	}
 
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawSphere(transform.position + groundCheck, groundRadius);
-    }
+	void FixedUpdate ()
+	{
+		float move = Input.GetAxis ("Horizontal");
+		body.velocity = new Vector2 (move * MaxSpeed, body.velocity.y);
+		if (Input.GetButtonDown ("Jump")) {
+			body.AddForce (new Vector2 (0f, JumpForce));
+		}
 
-    void Update()
-    {
+		if (Mathf.Abs (body.velocity.x) < 0.1f) {
+			animator.Play ("stand");
+		} else {
+			animator.Play ("run");
+		}
 
-    }
+		if (body.velocity.x > 0) {
+			if (transform.localScale.x < 0) {
+				transform.localScale = new Vector3 (-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+			}
+		} else {
+			if (transform.localScale.x > 0) {
+				transform.localScale = new Vector3 (-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+			}
+		}
+	}
+
+	void OnDrawGizmosSelected ()
+	{
+		Gizmos.color = Color.blue;
+		Gizmos.DrawSphere (transform.position + groundCheck, groundRadius);
+	}
+
+	void Update ()
+	{
+
+	}
 }
