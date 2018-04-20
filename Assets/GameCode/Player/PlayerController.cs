@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
-    [SerializeField] private float MaxSpeed = 10f;
-    // The fastest the player can travel in the x axis.
-    [SerializeField] private float JumpForce = 400f;
+    public float MaxSpeed = 10f;
+    public float JumpForce = 400f;
 
     private Rigidbody2D body;
+    bool grounded = false;
+
+    public Vector3 groundCheck;
+    public float groundRadius = 0.3f;
 
     void Start()
     {
@@ -24,8 +27,10 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    void OnDrawGizmos()
+    void OnDrawGizmosSelected()
     {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawSphere(transform.position + groundCheck, groundRadius);
     }
 
     void Update()
