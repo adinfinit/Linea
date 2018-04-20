@@ -677,7 +677,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2038238586}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0.66, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1635340879}
@@ -710,3 +710,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   line: {r: 0, g: 0, b: 0, a: 1}
   background: {r: 1, g: 1, b: 1, a: 1}
+  backgroundTexture: {fileID: 2800000, guid: 7b2b5649da756441091bd3bb12b993b7, type: 3}
+  parallaxSpeed: 30

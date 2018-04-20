@@ -3,6 +3,8 @@ Properties {
 	_MainTex ("Base (RGB)", 2D) = "white" {}
 	_LineColor("Line Color", Color) = (0, 0, 0, 1)
 	_BackgroundColor("Background Color", Color) = (0.5, 0.5, 0.5, 1)
+	_BackgroundTex("Background Texture", 2D) = "white" {}
+	_ParallaxSpeed("Background Scrolling Speed", Float) = 1.0
 }
 SubShader {
 	Pass {
@@ -16,7 +18,9 @@ SubShader {
 		uniform float4    _MainTex_TexelSize;
 
 		uniform float4 _BackgroundColor;
+		uniform sampler2D _BackgroundTex;
 		uniform float4 _LineColor;
+		uniform float _ParallaxSpeed;
 		
 		float sampleCros(sampler2D tex, float2 uv, float2 q) {
 			float s = 0.0f;
@@ -60,7 +64,7 @@ SubShader {
 			// float4 x = tex2D(_MainTex, i.uv);
 			// x.a = 1.0f;
 			// return lerp(_BackgroundColor, x, fill);
-			return lerp(_BackgroundColor, _LineColor, fill);
+			return lerp(_BackgroundColor, _LineColor, fill) * tex2D(_BackgroundTex, (_WorldSpaceCameraPos.xy * _ParallaxSpeed + i.pos) * 0.003);
 		}
 		ENDCG
 	}

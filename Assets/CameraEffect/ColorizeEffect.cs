@@ -6,6 +6,8 @@ public class ColorizeEffect : MonoBehaviour
 {
     public Color line = new Color(0f, 0f, 0f);
 	public Color background = new Color(1f, 1f, 1f);
+	public Texture backgroundTexture;
+	public float parallaxSpeed;
 
 	private Shader shader;
 	private Material material;
@@ -26,6 +28,10 @@ public class ColorizeEffect : MonoBehaviour
 
 		material.SetColor ("_LineColor", line);
 		material.SetColor ("_BackgroundColor", background);
+		
+		material.SetTexture("_BackgroundTex", backgroundTexture);
+
+		material.SetFloat("_ParallaxSpeed", parallaxSpeed);
 
 		Graphics.Blit (source, destination, material);
 	}
