@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
 
 		float jumpTime = Time.fixedTime - jumpStartTime;
 
-		if (!jumpPressed && grounded && (jumpTime > 0.2f)) {
+		if (!jumpPressed && grounded) {
 			jumpCount = 0;
 			jumpStartTime = 0;
 		}
