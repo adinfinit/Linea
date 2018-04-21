@@ -210,6 +210,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   line: {r: 0, g: 0, b: 0, a: 1}
   background: {r: 1, g: 1, b: 1, a: 1}
+  backgroundTexture: {fileID: 0}
+  parallaxSpeed: 0
 --- !u!114 &14382946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -494,8 +496,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ec81992bd76b7543bacaf7158ee6c69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxSpeed: 10
-  JumpForce: 400
+  MaxSpeed: 20
+  JumpForce: 2000
   groundCheck: {x: -0.06, y: -1.27, z: 0}
   groundRadius: 0.3
 --- !u!50 &567143321
@@ -512,7 +514,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 12
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
