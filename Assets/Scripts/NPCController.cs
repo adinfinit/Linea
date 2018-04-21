@@ -27,7 +27,7 @@ public class NPCController : MonoBehaviour {
 		RaycastHit2D[] groundCheck = Physics2D.CircleCastAll(transform.position, groundCheckRadius, Vector2.down);
 		if(groundCheck.Length > 1 && groundCheck[1].distance <= groundCheckDistance){
 			velocity.y = 0;
-			velocity.x = movementSpeed * (isMovingRight ? 1 : -1);
+			velocity.x = movementSpeed * (isMovingRight ? 1 : -1) * (Mathf.Sin(Time.time * Mathf.PI * 2) + 2) / 2;
 			RaycastHit2D[] walkCheck = Physics2D.CircleCastAll(transform.position, groundCheckRadius-0.1f, new Vector2(isMovingRight ? 1 : -1, 0));
 
 			if(walkCheck.Length > 1){
