@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PickTextController : MonoBehaviour {
 
 	public GameObject mercyText, danceText;
+	public Transform arrow;
 
 	// Use this for initialization
 	void Start () {
@@ -15,8 +16,10 @@ public class PickTextController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		float phase = Mathf.Sin(Mathf.PI * Time.time);
-		//transform.localScale = new Vector3(Mathf.Sign(phase), 1, 1);
-		mercyText.SetActive(phase > 0);
-		danceText.SetActive(phase < 0);
+		arrow.localScale = new Vector3(Mathf.Sign(phase) * (Mathf.Abs(phase/2)+0.5f), Mathf.Abs(phase/2)+0.5f, 1);
+		//mercyText.SetActive(phase > 0);
+		//danceText.SetActive(phase < 0);
+		mercyText.transform.localScale = Mathf.Lerp(0.5f, 1, (phase+1)/2) * Vector3.one;
+		danceText.transform.localScale = Mathf.Lerp(0.5f, 1, (-phase+1)/2) * Vector3.one;
 	}
 }
