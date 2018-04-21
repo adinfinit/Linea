@@ -12,21 +12,26 @@ public class PlayerController : MonoBehaviour
 	public float MaxHangTime = 0.4f;
 	public float AirborneControlForce = 100.0f;
 
+	public float Gravity = 10.0f;
+
 	public Vector3 GroundCheck = new Vector3 (0, -2f, 0);
 	public float GroundRadius = 0.3f;
 	public float GroundSpread = 0.5f;
 	public LayerMask GroundLayer;
 
 	[Header ("State")]
-	public Rigidbody2D body;
-	public BoxCollider2D boxCollider;
-	public bool grounded = false;
+	private Rigidbody2D body;
+	private BoxCollider2D boxCollider;
+	private bool grounded = false;
+	private bool hitHead = false;
 
-	public Vector2 direction;
-	public float jumpFirstTime = 0.0f;
-	public float jumpStickyTime = 0.0f;
-	public float jumpLastTime = 0.0f;
-	public int jumpCount = 0;
+	private Vector2 direction;
+	private float jumpFirstTime = 0.0f;
+	private float jumpStickyTime = 0.0f;
+	private float jumpLastTime = 0.0f;
+	private int jumpCount = 0;
+
+	private float lastAnimationSpeed = 0.0f;
 
 	Animator animator;
 	bool facingRight = true;
@@ -49,17 +54,36 @@ public class PlayerController : MonoBehaviour
 		center.x -= GroundSpread;
 		return center;
 	}
+	
+	Vector3 HeadCheck1(){
+		Vector3 head = GroundCheck;
+		head.y = -head.y;
+		Vector3 center = transform.position + head;
+		center.x += GroundSpread;
+		return center;
+	}
 
+	Vector3 HeadCheck2(){
+		Vector3 head = GroundCheck;
+		head.y = -head.y;
+		Vector3 center = transform.position + head;
+		center.x -= GroundSpread;
+		return center;
+	}
+	
 	void Update ()
 	{
-		direction.x = Input.GetAxis ("Horizontal");
-		direction.y = Input.GetAxis ("Vertical");
+		direction.x = Input.GetAxisRaw ("Horizontal");
+		direction.y = Input.GetAxisRaw ("Vertical");
 
 		grounded = Physics2D.OverlapCircle(GroundCheck1(), GroundRadius, GroundLayer) || 
 			Physics2D.OverlapCircle(GroundCheck2(), GroundRadius, GroundLayer);
 
+		hitHead = Physics2D.OverlapCircle(HeadCheck1(), GroundRadius, GroundLayer) || 
+			Physics2D.OverlapCircle(HeadCheck2(), GroundRadius, GroundLayer);
+
 		bool jumpJustPressedSticky = Time.fixedTime - jumpStickyTime < 0.1f;
-		bool jumpJustPressed = Input.GetButtonDown ("Jump") || jumpJustPressedSticky;
+		bool jumpJustPressed = Input.GetButtonDown ("Jump");
 		if(!grounded && jumpJustPressed && !jumpJustPressedSticky){
 			jumpStickyTime = Time.fixedTime;
 		}
@@ -69,6 +93,11 @@ public class PlayerController : MonoBehaviour
 		if (grounded && (Time.fixedTime - jumpFirstTime > 0.1f)) {
 			jumpCount = 0;
 			jumpFirstTime = 0;
+			jumpLastTime = 0;
+			jumpStickyTime = 0;
+		}
+
+		if(hitHead){
 			jumpLastTime = 0;
 			jumpStickyTime = 0;
 		}
@@ -107,13 +136,13 @@ public class PlayerController : MonoBehaviour
 		if (grounded || justJumpedFromGround) {
 			if(Mathf.Abs(direction.x) > 0.1f){
 				if(justJumpedFromGround) {
-					velocity.x = direction.x * MaxSpeed * jumpTime / JustTime;
+					velocity.x = Mathf.Max(velocity.x, direction.x * MaxSpeed * jumpTime / JustTime);
 				} else {
 					velocity.x = direction.x * MaxSpeed;
 				}
 			} else {
 				if(!justJumpedFromGround){
-					velocity.x *= 0.99f;
+					velocity.x *= 0.8f;
 				}
 			}
 		}
@@ -123,13 +152,12 @@ public class PlayerController : MonoBehaviour
 		}
 
 		velocity.x = Mathf.Clamp(velocity.x, -MaxSpeed, MaxSpeed);
-		body.velocity = velocity;
 
-		if (Mathf.Abs (direction.x) < 0.1f) {
-			animator.Play ("stand");
-		} else {
-			animator.Play ("run");
-		}
+		float newAnimationSpeed = Mathf.Abs(body.velocity.x) / MaxSpeed;
+		lastAnimationSpeed = Mathf.Clamp(newAnimationSpeed, lastAnimationSpeed -0.2f,  lastAnimationSpeed +0.2f);
+		animator.SetFloat("Speed", lastAnimationSpeed);
+
+		body.velocity = velocity;
 
 		if (direction.x > 0.1f) {
 			facingRight = true;
@@ -149,5 +177,9 @@ public class PlayerController : MonoBehaviour
 		Gizmos.color = grounded ? Color.green : Color.blue;
 		Gizmos.DrawSphere (GroundCheck1(), GroundRadius);
 		Gizmos.DrawSphere (GroundCheck2(), GroundRadius);
+
+		Gizmos.color = hitHead ? Color.green : Color.blue;
+		Gizmos.DrawSphere (HeadCheck1(), GroundRadius);
+		Gizmos.DrawSphere (HeadCheck2(), GroundRadius);
 	}
 }
