@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
 	public bool grounded = false;
 
 	public Vector2 direction;
+	public float jumpStickyTime = 0.0f;
 	public float jumpStartTime = 0.0f;
 	public int jumpCount = 0;
 
@@ -56,13 +57,23 @@ public class PlayerController : MonoBehaviour
 		grounded = Physics2D.OverlapCircle(GroundCheck1(), GroundRadius, GroundLayer) || 
 			Physics2D.OverlapCircle(GroundCheck2(), GroundRadius, GroundLayer);
 
-		bool jumpJustPressed = Input.GetButtonDown ("Jump");
+		bool jumpJustPressedSticky = Time.fixedTime - jumpStickyTime < 0.1f;
+		bool jumpJustPressed = Input.GetButtonDown ("Jump") || jumpJustPressedSticky;
+		if(!grounded && jumpJustPressed){
+			jumpStickyTime = Time.fixedTime;
+		}
+
 		bool jumpPressed = Input.GetButton ("Jump") || jumpJustPressed;
 		if (jumpJustPressed) {
 			jumpCount++;
 			jumpStartTime = Time.fixedTime;
 		}
 
+		if (!jumpPressed && grounded) {
+			jumpCount = 0;
+			jumpStartTime = 0;
+		}
+		
 		float jumpTime = Time.fixedTime - jumpStartTime;
 		float jumpMultiplier = 0f;
 		bool jumpActive = false;
@@ -104,11 +115,6 @@ public class PlayerController : MonoBehaviour
 			body.AddForce(force);
 		}
 
-		if (!jumpPressed && grounded) {
-			jumpCount = 0;
-			jumpStartTime = 0;
-		}
-		
 		velocity.x = Mathf.Clamp(velocity.x, -MaxSpeed, MaxSpeed);
 		body.velocity = velocity;
 
