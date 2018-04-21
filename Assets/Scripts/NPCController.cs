@@ -44,13 +44,21 @@ public class NPCController : MonoBehaviour
 	{
 		lives--;
 		if (lives <= 0) {
-			Destroy (gameObject);
+			// anim.Play ("death");
+			Die();
 		}
 	}
-	
+
+	public void Die(){
+		Destroy(gameObject);
+	}
+
 	// Update is called once per frame
 	void Update ()
 	{
+		if(lives <= 0)
+			return;
+
 		LayerMask levelMask = 1 << LayerMask.NameToLayer ("Default");
 		LayerMask playerMask = 1 << LayerMask.NameToLayer ("Player");
 		LayerMask enemyMask = 1 << LayerMask.NameToLayer ("Enemy");
@@ -61,21 +69,21 @@ public class NPCController : MonoBehaviour
 			velocity.x = movementSpeed * (isMovingRight ? 1 : -1) * (Mathf.Sin (Time.time * Mathf.PI * 2) + 2) / 2;
 			
 			RaycastHit2D[] walkChecks = Physics2D.CircleCastAll (
-				transform.position + Vector3.up * 0.5f,
-				groundCheckRadius - 0.1f,
-				new Vector2 (isMovingRight ? 1 : -1, 0),
-				Mathf.Max(walkCheckDistance, attackDistance),
-				levelMask | playerMask | enemyMask
-			);
+				                            transform.position + Vector3.up * 0.5f,
+				                            groundCheckRadius - 0.1f,
+				                            new Vector2 (isMovingRight ? 1 : -1, 0),
+				                            Mathf.Max (walkCheckDistance, attackDistance),
+				                            levelMask | playerMask | enemyMask
+			                            );
 
-			foreach (var check in walkChecks)
-			{
-				if(check.collider.gameObject == this.gameObject) continue;
+			foreach (var check in walkChecks) {
+				if (check.collider.gameObject == this.gameObject)
+					continue;
 				
 				if (check.distance < attackDistance && check.collider.gameObject.tag == "Player") {
 					StartAttack ();
 					break;
-				} else if  (check.distance < walkCheckDistance) {
+				} else if (check.distance < walkCheckDistance) {
 					isMovingRight = !isMovingRight;
 					float xScale = Mathf.Abs (transform.localScale.x) * (isMovingRight ? -1 : 1);
 					transform.localScale = new Vector3 (xScale, transform.localScale.y, transform.localScale.z);

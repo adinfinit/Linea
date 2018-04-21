@@ -175,7 +175,7 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
-	[Header("Attack")]
+	[Header ("Attack")]
 
 	public BoxCollider2D AttackCollider;
 	private bool attacked = false;
@@ -193,8 +193,8 @@ public class PlayerController : MonoBehaviour
 
 		Collider2D[] hits = new Collider2D[1];
 		ContactFilter2D filter = new ContactFilter2D ();
-		filter.SetLayerMask (1 << LayerMask.NameToLayer("Enemy"));
-		Physics2D.OverlapCollider(AttackCollider, filter, hits);
+		filter.SetLayerMask (1 << LayerMask.NameToLayer ("Enemy"));
+		Physics2D.OverlapCollider (AttackCollider, filter, hits);
 		Collider2D hit = hits [0];
 		if (hit == null)
 			return;
@@ -205,6 +205,16 @@ public class PlayerController : MonoBehaviour
 
 		attacked = true;
 		enemy.HitByPlayer ();
+	}
+
+	public void HitByEnemy ()
+	{
+		// TODO:
+	}
+
+	void Die ()
+	{
+		Destroy (gameObject);
 	}
 
 	#region Debug
