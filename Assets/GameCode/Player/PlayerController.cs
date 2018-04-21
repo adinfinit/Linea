@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
 			Physics2D.OverlapCircle(GroundCheck2(), GroundRadius, GroundLayer);
 
 		bool jumpJustPressedSticky = Time.fixedTime - jumpStickyTime < 0.1f;
-		bool jumpJustPressed = Input.GetButtonDown ("Jump") || jumpJustPressedSticky;
+		bool jumpJustPressed = Input.GetButtonDown ("Jump");
 		if(!grounded && jumpJustPressed && !jumpJustPressedSticky){
 			jumpStickyTime = Time.fixedTime;
 		}
