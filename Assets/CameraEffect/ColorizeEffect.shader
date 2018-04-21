@@ -1,10 +1,14 @@
+#warning Upgrade NOTE: unity_Scale shader variable was removed; replaced '_WorldSpaceCameraPos.w' with '1.0'
+
 Shader "Hidden/ColorizeEffect" {
 Properties {
 	_MainTex ("Base (RGB)", 2D) = "white" {}
 	_LineColor("Line Color", Color) = (0, 0, 0, 1)
 	_BackgroundColor("Background Color", Color) = (0.5, 0.5, 0.5, 1)
 	_BackgroundTex("Background Texture", 2D) = "white" {}
-	_ParallaxSpeed("Background Scrolling Speed", Float) = 1.0
+	_ScreenSize("Screen Size", Vector) = (0, 0, 0, 0)
+	_DisplacementMultiplier("Displacement multiplier", Float) = 0.001
+	_TexSizeMult("Texture Size Multiplier", Float) = 10.0
 }
 SubShader {
 	Pass {
@@ -20,48 +24,13 @@ SubShader {
 		uniform float4 _BackgroundColor;
 		uniform sampler2D _BackgroundTex;
 		uniform float4 _LineColor;
-		uniform float _ParallaxSpeed;
+		uniform float2 _ScreenSize;
+		uniform float _DisplacementMultiplier;
+		uniform float _TexSizeMult;
 		
-		float random (in float2 _st) {
-			return sin(dot(_st.xy,
-								float2(12.9898,78.233))) % 1.0f *
-				43758.5453123;
-		}
-
-		// Based on Morgan McGuire @morgan3d
-		// https://www.shadertoy.com/view/4dS3Wd
-		float noise (in float2 _st) {
-			float2 i = floor(_st);
-			float2 f = _st % 1.0f;
-
-			// Four corners in 2D of a tile
-			float a = random(i);
-			float b = random(i + float2(1.0, 0.0));
-			float c = random(i + float2(0.0, 1.0));
-			float d = random(i + float2(1.0, 1.0));
-
-			float2 u = f * f * (3.0 - 2.0 * f);
-
-			return lerp(a, b, u.x) +
-					(c - a)* u.y * (1.0 - u.x) +
-					(d - b) * u.x * u.y;
-		}
-
-		#define NUM_OCTAVES 1
-
-		float fbm ( in float2 _st) {
-			float v = 0.0;
-			float a = 0.5;
-			float2 shift = float2(100.0, 100.0);
-			// Rotate to reduce axial bias
-			float2x2 rot = float2x2(cos(0.5), sin(0.5),
-							-sin(0.5), cos(0.50));
-			for (int i = 0; i < NUM_OCTAVES; ++i) {
-				v += a * noise(_st);
-				_st = mul(rot, _st) * 2.0f + shift;
-				a *= 0.5;
-			}
-			return v;
+		float random(float3 co)
+		{
+			return frac(sin( dot(co.xyz ,float3(12.9898,78.233,45.5432) )) * 43758.5453);
 		}
 
 		float sampleCros(sampler2D tex, float2 uv, float2 q) {
@@ -101,12 +70,20 @@ SubShader {
 		}
 
 		float4 frag(v2f_img i) : COLOR {
-			float fill = filling(_MainTex, _MainTex_TexelSize, i.uv + fbm(random(i.uv) * random(_Time.x) * 1000) * 0.00000004);
+			float tick = int(_Time.x*30.0f);
+			float2 worldPos = _WorldSpaceCameraPos + i.uv * _ScreenSize;
+			float2 displacement = float2(random(float3(worldPos, tick)), random(float3(worldPos, tick)));
+			float fill = filling(_MainTex, _MainTex_TexelSize, i.uv + displacement * _DisplacementMultiplier);
 			
 			// float4 x = tex2D(_MainTex, i.uv);
 			// x.a = 1.0f;
 			// return lerp(_BackgroundColor, x, fill);
-			return lerp(_BackgroundColor, _LineColor, fill) * tex2D(_BackgroundTex, (_WorldSpaceCameraPos.xy * _ParallaxSpeed + i.pos) * 0.003);
+			// Overlay blend
+			float4 a = tex2D(_BackgroundTex, worldPos / _TexSizeMult).g;
+			float4 b = lerp(_BackgroundColor, _LineColor, fill);
+			float comp = step(0.5f, a);
+			return comp*2*a*b+(1-comp)*(1-2*(1-a)*(1-b));
+			//return float4(worldPos, 0, 1.0);
 		}
 		ENDCG
 	}

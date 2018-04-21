@@ -8,6 +8,7 @@ public class ColorizeEffect : MonoBehaviour
 	public Color background = new Color(1f, 1f, 1f);
 	public Texture backgroundTexture;
 	public float parallaxSpeed;
+	public float fuzzyness = 0.1f;
 
 	private Shader shader;
 	private Material material;
@@ -32,6 +33,11 @@ public class ColorizeEffect : MonoBehaviour
 		material.SetTexture("_BackgroundTex", backgroundTexture);
 
 		material.SetFloat("_ParallaxSpeed", parallaxSpeed);
+		material.SetFloat("_DisplacementMultiplier", fuzzyness);
+
+		material.SetVector("_ScreenSize", new Vector4(
+			2 * Camera.main.orthographicSize * Camera.main.aspect, 
+			2 * Camera.main.orthographicSize));
 
 		Graphics.Blit (source, destination, material);
 	}
