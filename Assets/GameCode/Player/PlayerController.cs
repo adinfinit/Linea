@@ -20,15 +20,17 @@ public class PlayerController : MonoBehaviour
 	public LayerMask GroundLayer;
 
 	[Header ("State")]
-	public Rigidbody2D body;
-	public BoxCollider2D boxCollider;
+	private Rigidbody2D body;
+	private BoxCollider2D boxCollider;
 	public bool grounded = false;
 
-	public Vector2 direction;
-	public float jumpFirstTime = 0.0f;
-	public float jumpStickyTime = 0.0f;
-	public float jumpLastTime = 0.0f;
-	public int jumpCount = 0;
+	private Vector2 direction;
+	private float jumpFirstTime = 0.0f;
+	private float jumpStickyTime = 0.0f;
+	private float jumpLastTime = 0.0f;
+	private int jumpCount = 0;
+
+	private float lastAnimationSpeed = 0.0f;
 
 	Animator animator;
 	bool facingRight = true;
@@ -127,11 +129,9 @@ public class PlayerController : MonoBehaviour
 		velocity.x = Mathf.Clamp(velocity.x, -MaxSpeed, MaxSpeed);
 		body.velocity = velocity;
 
-		if (Mathf.Abs (direction.x) < 0.1f) {
-			animator.Play ("stand");
-		} else {
-			animator.Play ("run");
-		}
+		float newAnimationSpeed = Mathf.Abs(velocity.x) / MaxSpeed;
+		lastAnimationSpeed = Mathf.Clamp(newAnimationSpeed, lastAnimationSpeed -0.2f,  lastAnimationSpeed +0.2f);
+		animator.SetFloat("Speed", lastAnimationSpeed);
 
 		if (direction.x > 0.1f) {
 			facingRight = true;
