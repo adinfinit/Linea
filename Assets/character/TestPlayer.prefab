@@ -1240,12 +1240,12 @@ MonoBehaviour:
   MaxHangTime: 0.4
   AirborneControlForce: 100
   Gravity: 10
-  GroundCheck: {x: 0, y: -2.5, z: 0}
   GroundRadius: 0.25
   GroundSpread: 0.4
   GroundLayer:
     serializedVersion: 2
     m_Bits: 1
+  AttackCollider: {fileID: 61608357175123582}
 --- !u!114 &114714921573761718
 MonoBehaviour:
   m_ObjectHideFlags: 1
