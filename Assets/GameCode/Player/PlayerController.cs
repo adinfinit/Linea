@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
 		return center;
 	}
 
-	void FixedUpdate ()
+	void Update ()
 	{
 		direction.x = Input.GetAxis ("Horizontal");
 		direction.y = Input.GetAxis ("Vertical");
@@ -149,10 +149,5 @@ public class PlayerController : MonoBehaviour
 		Gizmos.color = grounded ? Color.green : Color.blue;
 		Gizmos.DrawSphere (GroundCheck1(), GroundRadius);
 		Gizmos.DrawSphere (GroundCheck2(), GroundRadius);
-	}
-
-	void Update ()
-	{
-
 	}
 }
