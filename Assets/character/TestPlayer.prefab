@@ -1212,8 +1212,10 @@ MonoBehaviour:
   MinJumpVelocity: 5
   MaxJumpVelocity: 25
   MaxHangTime: 0.4
+  AirborneControlForce: 100
   GroundCheck: {x: 0, y: -2.5, z: 0}
-  GroundRadius: 0.2
+  GroundRadius: 0.3
+  GroundSpread: 0.5
   GroundLayer:
     serializedVersion: 2
     m_Bits: 1
