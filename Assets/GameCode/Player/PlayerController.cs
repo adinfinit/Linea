@@ -22,7 +22,8 @@ public class PlayerController : MonoBehaviour
 	[Header ("State")]
 	private Rigidbody2D body;
 	private BoxCollider2D boxCollider;
-	public bool grounded = false;
+	private bool grounded = false;
+	private bool hitHead = false;
 
 	private Vector2 direction;
 	private float jumpFirstTime = 0.0f;
@@ -53,7 +54,23 @@ public class PlayerController : MonoBehaviour
 		center.x -= GroundSpread;
 		return center;
 	}
+	
+	Vector3 HeadCheck1(){
+		Vector3 head = GroundCheck;
+		head.y = -head.y;
+		Vector3 center = transform.position + head;
+		center.x += GroundSpread;
+		return center;
+	}
 
+	Vector3 HeadCheck2(){
+		Vector3 head = GroundCheck;
+		head.y = -head.y;
+		Vector3 center = transform.position + head;
+		center.x -= GroundSpread;
+		return center;
+	}
+	
 	void Update ()
 	{
 		direction.x = Input.GetAxisRaw ("Horizontal");
@@ -61,6 +78,9 @@ public class PlayerController : MonoBehaviour
 
 		grounded = Physics2D.OverlapCircle(GroundCheck1(), GroundRadius, GroundLayer) || 
 			Physics2D.OverlapCircle(GroundCheck2(), GroundRadius, GroundLayer);
+
+		hitHead = Physics2D.OverlapCircle(HeadCheck1(), GroundRadius, GroundLayer) || 
+			Physics2D.OverlapCircle(HeadCheck2(), GroundRadius, GroundLayer);
 
 		bool jumpJustPressedSticky = Time.fixedTime - jumpStickyTime < 0.1f;
 		bool jumpJustPressed = Input.GetButtonDown ("Jump");
@@ -73,6 +93,11 @@ public class PlayerController : MonoBehaviour
 		if (grounded && (Time.fixedTime - jumpFirstTime > 0.1f)) {
 			jumpCount = 0;
 			jumpFirstTime = 0;
+			jumpLastTime = 0;
+			jumpStickyTime = 0;
+		}
+
+		if(hitHead){
 			jumpLastTime = 0;
 			jumpStickyTime = 0;
 		}
@@ -127,11 +152,12 @@ public class PlayerController : MonoBehaviour
 		}
 
 		velocity.x = Mathf.Clamp(velocity.x, -MaxSpeed, MaxSpeed);
-		body.velocity = velocity;
 
-		float newAnimationSpeed = Mathf.Abs(velocity.x) / MaxSpeed;
+		float newAnimationSpeed = Mathf.Abs(body.velocity.x) / MaxSpeed;
 		lastAnimationSpeed = Mathf.Clamp(newAnimationSpeed, lastAnimationSpeed -0.2f,  lastAnimationSpeed +0.2f);
 		animator.SetFloat("Speed", lastAnimationSpeed);
+
+		body.velocity = velocity;
 
 		if (direction.x > 0.1f) {
 			facingRight = true;
@@ -151,5 +177,9 @@ public class PlayerController : MonoBehaviour
 		Gizmos.color = grounded ? Color.green : Color.blue;
 		Gizmos.DrawSphere (GroundCheck1(), GroundRadius);
 		Gizmos.DrawSphere (GroundCheck2(), GroundRadius);
+
+		Gizmos.color = hitHead ? Color.green : Color.blue;
+		Gizmos.DrawSphere (HeadCheck1(), GroundRadius);
+		Gizmos.DrawSphere (HeadCheck2(), GroundRadius);
 	}
 }
