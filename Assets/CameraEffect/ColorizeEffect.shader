@@ -9,6 +9,7 @@ Properties {
 	_ScreenSize("Screen Size", Vector) = (0, 0, 0, 0)
 	_DisplacementMultiplier("Displacement multiplier", Float) = 0.001
 	_TexSizeMult("Texture Size Multiplier", Float) = 10.0
+	_IsTexStatic("Is Background Texture Static", Int) = 0
 }
 SubShader {
 	Pass {
@@ -27,6 +28,7 @@ SubShader {
 		uniform float2 _ScreenSize;
 		uniform float _DisplacementMultiplier;
 		uniform float _TexSizeMult;
+		uniform int _IsTexStatic;
 		
 		float random(float3 co)
 		{
@@ -35,19 +37,19 @@ SubShader {
 
 		float sampleCros(sampler2D tex, float2 uv, float2 q) {
 			float s = 0.0f;
-			s += tex2D(tex, uv + float2(q.x, 0)).a;
-			s += tex2D(tex, uv + float2(-q.x, 0)).a;
-			s += tex2D(tex, uv + float2(0, q.y)).a;
-			s += tex2D(tex, uv + float2(0, -q.y)).a;
+			s += tex2D(tex, uv + float2(q.x, 0)).r;
+			s += tex2D(tex, uv + float2(-q.x, 0)).r;
+			s += tex2D(tex, uv + float2(0, q.y)).r;
+			s += tex2D(tex, uv + float2(0, -q.y)).r;
 			return s;
 		}
 
 		float sampleDiag(sampler2D tex, float2 uv, float2 q) {
 			float s = 0.0f;
-			s += tex2D(tex, uv + float2(-q.x, q.y)).a;
-			s += tex2D(tex, uv + float2(-q.x, -q.y)).a;
-			s += tex2D(tex, uv + float2(q.x, -q.y)).a;
-			s += tex2D(tex, uv + float2(q.x, q.y)).a;
+			s += tex2D(tex, uv + float2(-q.x, q.y)).r;
+			s += tex2D(tex, uv + float2(-q.x, -q.y)).r;
+			s += tex2D(tex, uv + float2(q.x, -q.y)).r;
+			s += tex2D(tex, uv + float2(q.x, q.y)).r;
 			return s;
 		}
 
@@ -59,30 +61,36 @@ SubShader {
 			s /= 4.0f + 4.0f * 0.7071f;
 			
 			// fill stray empty pixels
-			if(x.a < 0.7f && s > 0.5f){
+			if(x.r < 0.7f && s > 0.5f){
 				if(s > 0.6f) {
 					return 1.0f;
 				}
-				return max(x.a, (s - 0.5f) / 0.1f);
+				return max(x.r, (s - 0.5f) / 0.1f);
 			}
 
-			return x.a;
+			return x.r;
 		}
 
 		float4 frag(v2f_img i) : COLOR {
 			float tick = int(_Time.x*30.0f);
 			float2 worldPos = _WorldSpaceCameraPos + i.uv * _ScreenSize;
 			float2 displacement = float2(random(float3(worldPos, tick)), random(float3(worldPos, tick)));
+			float4 a;
 			float fill = filling(_MainTex, _MainTex_TexelSize, i.uv + displacement * _DisplacementMultiplier);
+			if(_IsTexStatic){
+				a = tex2D(_BackgroundTex, i.uv).g;
+			}else{
+				a = tex2D(_BackgroundTex, worldPos / _TexSizeMult).g;
+			}
 			
 			// float4 x = tex2D(_MainTex, i.uv);
 			// x.a = 1.0f;
 			// return lerp(_BackgroundColor, x, fill);
 			// Overlay blend
-			float4 a = tex2D(_BackgroundTex, worldPos / _TexSizeMult).g;
 			float4 b = lerp(_BackgroundColor, _LineColor, fill);
+			//a.a = b.a;
 			float comp = step(0.5f, a);
-			return comp*2*a*b+(1-comp)*(1-2*(1-a)*(1-b));
+			return float4((comp*2*a*b+(1-comp)*(1-2*(1-a)*(1-b))).xyz, 1);
 			//return float4(worldPos, 0, 1.0);
 		}
 		ENDCG

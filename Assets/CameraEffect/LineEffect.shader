@@ -48,6 +48,11 @@ SubShader{
 				return 1.0f - reddish / 0.1f;
 			}
 
+			float greenish = length(x - float4(0.0, 1.0, 0.0, 1.0));
+			if(greenish < 0.1f) {
+				return 0.0f;
+			}
+
 			// make aliased lines and background transparent
 			const float MIN = 0.9f;
 			if(x.a <= MIN){
@@ -100,7 +105,7 @@ SubShader{
 			float r = detectEdge(_MainTex, _MainTex_TexelSize, i.uv);
 			float4 x = tex2D(_MainTex, i.uv);
 
-			return float4(x.r, x.g, x.b, r);
+			return float4(r,r,r, x.a);
 		}
 		ENDCG
 	}
