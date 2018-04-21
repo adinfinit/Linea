@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
 	public float MaxHangTime = 0.4f;
 	public float AirborneControlForce = 100.0f;
 
+	public float Gravity = 10.0f;
+
 	public Vector3 GroundCheck = new Vector3 (0, -2f, 0);
 	public float GroundRadius = 0.3f;
 	public float GroundSpread = 0.5f;
@@ -52,8 +54,8 @@ public class PlayerController : MonoBehaviour
 
 	void Update ()
 	{
-		direction.x = Input.GetAxis ("Horizontal");
-		direction.y = Input.GetAxis ("Vertical");
+		direction.x = Input.GetAxisRaw ("Horizontal");
+		direction.y = Input.GetAxisRaw ("Vertical");
 
 		grounded = Physics2D.OverlapCircle(GroundCheck1(), GroundRadius, GroundLayer) || 
 			Physics2D.OverlapCircle(GroundCheck2(), GroundRadius, GroundLayer);
@@ -107,13 +109,13 @@ public class PlayerController : MonoBehaviour
 		if (grounded || justJumpedFromGround) {
 			if(Mathf.Abs(direction.x) > 0.1f){
 				if(justJumpedFromGround) {
-					velocity.x = direction.x * MaxSpeed * jumpTime / JustTime;
+					velocity.x = Mathf.Max(velocity.x, direction.x * MaxSpeed * jumpTime / JustTime);
 				} else {
 					velocity.x = direction.x * MaxSpeed;
 				}
 			} else {
 				if(!justJumpedFromGround){
-					velocity.x *= 0.99f;
+					velocity.x *= 0.8f;
 				}
 			}
 		}
