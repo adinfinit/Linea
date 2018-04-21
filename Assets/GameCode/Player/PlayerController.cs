@@ -23,8 +23,9 @@ public class PlayerController : MonoBehaviour
 	public bool grounded = false;
 
 	public Vector2 direction;
+	public float jumpFirstTime = 0.0f;
 	public float jumpStickyTime = 0.0f;
-	public float jumpStartTime = 0.0f;
+	public float jumpLastTime = 0.0f;
 	public int jumpCount = 0;
 
 	Animator animator;
@@ -59,22 +60,28 @@ public class PlayerController : MonoBehaviour
 
 		bool jumpJustPressedSticky = Time.fixedTime - jumpStickyTime < 0.1f;
 		bool jumpJustPressed = Input.GetButtonDown ("Jump") || jumpJustPressedSticky;
-		if(!grounded && jumpJustPressed){
+		if(!grounded && jumpJustPressed && !jumpJustPressedSticky){
 			jumpStickyTime = Time.fixedTime;
 		}
 
 		bool jumpPressed = Input.GetButton ("Jump") || jumpJustPressed;
-		if (jumpJustPressed) {
-			jumpCount++;
-			jumpStartTime = Time.fixedTime;
-		}
-
-		if (!jumpPressed && grounded) {
+		
+		if (grounded && (Time.fixedTime - jumpFirstTime > 0.1f)) {
 			jumpCount = 0;
-			jumpStartTime = 0;
+			jumpFirstTime = 0;
+			jumpLastTime = 0;
+			jumpStickyTime = 0;
 		}
 		
-		float jumpTime = Time.fixedTime - jumpStartTime;
+		if (jumpJustPressed) {
+			if(jumpCount == 0){
+				jumpFirstTime = Time.fixedTime;
+			}
+			jumpCount++;
+			jumpLastTime = Time.fixedTime;
+		}
+
+		float jumpTime = Time.fixedTime - jumpLastTime;
 		float jumpMultiplier = 0f;
 		bool jumpActive = false;
 		if ((jumpCount <= 2) && jumpPressed) {
