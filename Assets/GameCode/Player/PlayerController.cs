@@ -36,11 +36,13 @@ public class PlayerController : MonoBehaviour
 			animator.Play ("run");
 		}
 
-		if (body.velocity.x > 0) {
+		if (body.velocity.x > 0.1f) {
+			facingRight = true;
 			if (transform.localScale.x < 0) {
 				transform.localScale = new Vector3 (-transform.localScale.x, transform.localScale.y, transform.localScale.z);
 			}
-		} else {
+		} else if (body.velocity.x < -0.1f) {
+			facingRight = false;
 			if (transform.localScale.x > 0) {
 				transform.localScale = new Vector3 (-transform.localScale.x, transform.localScale.y, transform.localScale.z);
 			}

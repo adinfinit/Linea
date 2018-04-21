@@ -47,7 +47,7 @@ SubShader {
 					(d - b) * u.x * u.y;
 		}
 
-		#define NUM_OCTAVES 5
+		#define NUM_OCTAVES 1
 
 		float fbm ( in float2 _st) {
 			float v = 0.0;
@@ -101,12 +101,15 @@ SubShader {
 		}
 
 		float4 frag(v2f_img i) : COLOR {
-			float fill = filling(_MainTex, _MainTex_TexelSize, i.uv + fbm(i.pos * _Time.x * 1000) * 0.00000005);
+			float distort = fbm(random(i.uv) * random(_Time.x) * 1000) * 0.00000004;
+			float fill = filling(_MainTex, _MainTex_TexelSize, i.uv + distort);
 			
 			// float4 x = tex2D(_MainTex, i.uv);
 			// x.a = 1.0f;
 			// return lerp(_BackgroundColor, x, fill);
-			return lerp(_BackgroundColor, _LineColor, fill) * tex2D(_BackgroundTex, (_WorldSpaceCameraPos.xy * _ParallaxSpeed + i.pos) * 0.003);
+			float2 paperPosition = (_WorldSpaceCameraPos.xy * _ParallaxSpeed + i.pos) * 0.003;
+			float4 paperTexture = tex2D(_BackgroundTex, paperPosition);
+			return lerp(_BackgroundColor, _LineColor, fill) * paperTexture;
 		}
 		ENDCG
 	}
