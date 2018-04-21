@@ -10,9 +10,11 @@ public class PlayerController : MonoBehaviour
 	public float MinJumpVelocity = 5.0f;
 	public float MaxJumpVelocity = 30.0f;
 	public float MaxHangTime = 0.4f;
+	public float AirborneControlForce = 100.0f;
 
 	public Vector3 GroundCheck = new Vector3 (0, -2f, 0);
 	public float GroundRadius = 0.3f;
+	public float GroundSpread = 0.5f;
 	public LayerMask GroundLayer;
 
 	[Header ("State")]
@@ -34,14 +36,25 @@ public class PlayerController : MonoBehaviour
 		animator = GetComponent<Animator> ();
 	}
 
+	Vector3 GroundCheck1(){
+		Vector3 center = transform.position + GroundCheck;
+		center.x += GroundSpread;
+		return center;
+	}
+
+	Vector3 GroundCheck2(){
+		Vector3 center = transform.position + GroundCheck;
+		center.x -= GroundSpread;
+		return center;
+	}
+
 	void FixedUpdate ()
 	{
 		direction.x = Input.GetAxis ("Horizontal");
 		direction.y = Input.GetAxis ("Vertical");
 
-		grounded = Physics2D.OverlapCircle (
-			GroundCheck + transform.position, 
-			GroundRadius, GroundLayer);
+		grounded = Physics2D.OverlapCircle(GroundCheck1(), GroundRadius, GroundLayer) || 
+			Physics2D.OverlapCircle(GroundCheck2(), GroundRadius, GroundLayer);
 
 		bool jumpJustPressed = Input.GetButtonDown ("Jump");
 		bool jumpPressed = Input.GetButton ("Jump");
@@ -50,21 +63,22 @@ public class PlayerController : MonoBehaviour
 			jumpStartTime = Time.fixedTime;
 		}
 
-		if (!jumpPressed && grounded) {
+		float jumpTime = Time.fixedTime - jumpStartTime;
+
+		if (!jumpPressed && grounded && (jumpTime > 0.2f)) {
 			jumpCount = 0;
 			jumpStartTime = 0;
 		}
 		
-		float jumpTime = 0f;
 		float jumpMultiplier = 0f;
 		bool jumpActive = false;
 		if ((jumpCount <= 2) && jumpPressed) {
-			jumpTime = MaxHangTime - (Time.fixedTime - jumpStartTime);
-			jumpActive = jumpTime > 0;
-			jumpMultiplier = jumpTime / MaxHangTime;
+			jumpActive = MaxHangTime - jumpTime > 0;
+			jumpMultiplier = (MaxHangTime - jumpTime) / MaxHangTime;
 		}
 		
-		Vector2 velocity = new Vector2 (direction.x * MaxSpeed, body.velocity.y);
+		Vector2 velocity = body.velocity;
+		// update jumping info
 		if (jumpActive) {
 			velocity.y = jumpMultiplier * (MaxJumpVelocity - MinJumpVelocity) + MinJumpVelocity;
 			body.gravityScale = 0.1f;
@@ -75,20 +89,42 @@ public class PlayerController : MonoBehaviour
 			body.gravityScale = 12.0f;
 		}
 
+		const float JustTime = 0.2f;
+
+		bool justJumpedFromGround = (jumpCount == 1 && (jumpTime < JustTime));
+		if (grounded || justJumpedFromGround) {
+			if(Mathf.Abs(direction.x) > 0.1f){
+				if(justJumpedFromGround) {
+					velocity.x = direction.x * MaxSpeed * jumpTime / JustTime;
+				} else {
+					velocity.x = direction.x * MaxSpeed;
+				}
+			} else {
+				if(!justJumpedFromGround){
+					velocity.x *= 0.99f;
+				}
+			}
+		}
+		if(!grounded) {
+			var force = new Vector2(direction.x * AirborneControlForce, 0f);
+			body.AddForce(force);
+		}
+		
+		velocity.x = Mathf.Clamp(velocity.x, -MaxSpeed, MaxSpeed);
 		body.velocity = velocity;
 
-		if (Mathf.Abs (velocity.x) < 0.1f) {
+		if (Mathf.Abs (direction.x) < 0.1f) {
 			animator.Play ("stand");
 		} else {
 			animator.Play ("run");
 		}
 
-		if (velocity.x > 0.1f) {
+		if (direction.x > 0.1f) {
 			facingRight = true;
 			if (transform.localScale.x < 0) {
 				transform.localScale = new Vector3 (-transform.localScale.x, transform.localScale.y, transform.localScale.z);
 			}
-		} else if (velocity.x < -0.1f) {
+		} else if (direction.x < -0.1f) {
 			facingRight = false;
 			if (transform.localScale.x > 0) {
 				transform.localScale = new Vector3 (-transform.localScale.x, transform.localScale.y, transform.localScale.z);
@@ -99,7 +135,8 @@ public class PlayerController : MonoBehaviour
 	void OnDrawGizmos ()
 	{
 		Gizmos.color = grounded ? Color.green : Color.blue;
-		Gizmos.DrawSphere (transform.position + GroundCheck, GroundRadius);
+		Gizmos.DrawSphere (GroundCheck1(), GroundRadius);
+		Gizmos.DrawSphere (GroundCheck2(), GroundRadius);
 	}
 
 	void Update ()
