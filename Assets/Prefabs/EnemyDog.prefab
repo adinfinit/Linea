@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4949881755872548}
   - component: {fileID: 114355097774988316}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: New bone (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 4710223117659312}
   - component: {fileID: 114850582732024774}
   - component: {fileID: 137658590127501388}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: dog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 4337240743125110}
   - component: {fileID: 114507286877701028}
   - component: {fileID: 137457932992997566}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: leg2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,8 @@ GameObject:
   - component: {fileID: 4621036341061552}
   - component: {fileID: 58140350293708076}
   - component: {fileID: 114464951129017562}
-  m_Layer: 0
+  - component: {fileID: 50922764210362576}
+  m_Layer: 10
   m_Name: EnemyDog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +88,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4277453764745226}
   - component: {fileID: 114599180077307276}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: New bone (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +104,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4285321011070752}
   - component: {fileID: 114919949799189102}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: New bone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +121,7 @@ GameObject:
   - component: {fileID: 4020693924688982}
   - component: {fileID: 114770315119944564}
   - component: {fileID: 137788994301856390}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: jaw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,7 +137,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4762443548232126}
   - component: {fileID: 114424069922390078}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: jaw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,7 +153,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4062164959244632}
   - component: {fileID: 114682437040596524}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: New bone (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,7 +170,7 @@ GameObject:
   - component: {fileID: 4236946765686176}
   - component: {fileID: 95705954325121974}
   - component: {fileID: 114125557186721894}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185,7 +186,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4335793101928382}
   - component: {fileID: 114841669857080574}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: New bone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,7 +202,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4123953935408562}
   - component: {fileID: 114464440462039986}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: jaw2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,7 +218,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4223179840500910}
   - component: {fileID: 114613347231084542}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: leg1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -233,7 +234,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4495215835916218}
   - component: {fileID: 114948467772448812}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: New bone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -250,7 +251,7 @@ GameObject:
   - component: {fileID: 4378401236749062}
   - component: {fileID: 114094830443682238}
   - component: {fileID: 137617418746088360}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: leg1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -266,7 +267,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4877127290042104}
   - component: {fileID: 114690759487676854}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: leg2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,7 +283,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4886428958321988}
   - component: {fileID: 114068540810417492}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: New bone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -298,7 +299,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4937726769848824}
   - component: {fileID: 114097305824261960}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: New bone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -314,7 +315,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4621028246491044}
   - component: {fileID: 114718686082870940}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: New bone (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -329,7 +330,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4363653833802588}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -527,7 +528,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1153151263405534}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 38.1, y: 7, z: 4.171875}
+  m_LocalPosition: {x: 20.035515, y: -3.3753505, z: 4.171875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4236946765686176}
@@ -615,6 +616,26 @@ Transform:
   m_Father: {fileID: 4495215835916218}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 11.846001}
+--- !u!50 &50922764210362576
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1153151263405534}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!58 &58140350293708076
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -627,9 +648,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.23, y: -0.14}
+  m_Offset: {x: -0.09, y: 0.05}
   serializedVersion: 2
-  m_Radius: 1.05
+  m_Radius: 0.83
 --- !u!95 &95705954325121974
 Animator:
   serializedVersion: 3
@@ -725,7 +746,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 2.5999966
+  m_Length: 2.599995
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4285321011070752}
   m_AttachedIK: {fileID: 0}
@@ -741,7 +762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 2.1164243
+  m_Length: 2.1164145
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4123953935408562}
   m_AttachedIK: {fileID: 0}
@@ -777,6 +798,7 @@ MonoBehaviour:
   movementSpeed: 5
   walkCheckDistance: 0.5
   attackDistance: 3
+  lives: 1
   anim: {fileID: 95705954325121974}
 --- !u!114 &114507286877701028
 MonoBehaviour:
@@ -827,7 +849,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 1.5963585
+  m_Length: 1.5963583
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4335793101928382}
   m_AttachedIK: {fileID: 0}
@@ -970,7 +992,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.90035
+  m_Length: 0.900358
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4937726769848824}
   m_AttachedIK: {fileID: 0}
