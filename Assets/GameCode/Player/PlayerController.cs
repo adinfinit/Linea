@@ -22,9 +22,9 @@ public class PlayerController : MonoBehaviour
 	public BoxCollider2D boxCollider;
 	public bool grounded = false;
 
-	public  Vector2 direction;
-	public  float jumpStartTime = 0.0f;
-	public  int jumpCount = 0;
+	public Vector2 direction;
+	public float jumpStartTime = 0.0f;
+	public int jumpCount = 0;
 
 	Animator animator;
 	bool facingRight = true;
@@ -57,19 +57,13 @@ public class PlayerController : MonoBehaviour
 			Physics2D.OverlapCircle(GroundCheck2(), GroundRadius, GroundLayer);
 
 		bool jumpJustPressed = Input.GetButtonDown ("Jump");
-		bool jumpPressed = Input.GetButton ("Jump");
+		bool jumpPressed = Input.GetButton ("Jump") || jumpJustPressed;
 		if (jumpJustPressed) {
 			jumpCount++;
 			jumpStartTime = Time.fixedTime;
 		}
 
 		float jumpTime = Time.fixedTime - jumpStartTime;
-
-		if (!jumpPressed && grounded) {
-			jumpCount = 0;
-			jumpStartTime = 0;
-		}
-		
 		float jumpMultiplier = 0f;
 		bool jumpActive = false;
 		if ((jumpCount <= 2) && jumpPressed) {
@@ -108,6 +102,11 @@ public class PlayerController : MonoBehaviour
 		if(!grounded) {
 			var force = new Vector2(direction.x * AirborneControlForce, 0f);
 			body.AddForce(force);
+		}
+
+		if (!jumpPressed && grounded) {
+			jumpCount = 0;
+			jumpStartTime = 0;
 		}
 		
 		velocity.x = Mathf.Clamp(velocity.x, -MaxSpeed, MaxSpeed);
