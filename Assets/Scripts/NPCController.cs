@@ -34,7 +34,7 @@ public class NPCController : MonoBehaviour {
 				if(walkCheck[1].distance < attackDistance && walkCheck[1].collider.gameObject.tag == "Player"){
 					anim.Play("attack");
 				}else if(walkCheck[1].distance <= walkCheckDistance){
-					Debug.Log(walkCheck[1].collider.gameObject);
+					//Debug.Log(walkCheck[1].collider.gameObject);
 					isMovingRight = !isMovingRight;
 					float xScale = Mathf.Abs(transform.localScale.x) * (isMovingRight ? -1 : 1);
 					transform.localScale = new Vector3(xScale, transform.localScale.y, transform.localScale.z);
