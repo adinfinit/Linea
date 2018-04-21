@@ -45,18 +45,19 @@ public class NPCController : MonoBehaviour
 		lives--;
 		if (lives <= 0) {
 			// anim.Play ("death");
-			Die();
+			Die ();
 		}
 	}
 
-	public void Die(){
-		Destroy(gameObject);
+	public void Die ()
+	{
+		Destroy (gameObject);
 	}
 
 	// Update is called once per frame
 	void Update ()
 	{
-		if(lives <= 0)
+		if (lives <= 0)
 			return;
 
 		LayerMask levelMask = 1 << LayerMask.NameToLayer ("Default");
@@ -93,10 +94,28 @@ public class NPCController : MonoBehaviour
 			velocity += new Vector3 (0, -1, 0);
 		}
 
+		Vector3 fallCheckOffset = Vector3.down * groundCheckRadius * 1.5f;
+		fallCheckOffset += (isMovingRight ? 1 : -1) * Vector3.right * groundCheckRadius;
+		var fallCheck = Physics2D.OverlapCircle (transform.position + fallCheckOffset, groundCheckDistance, levelMask);
+		if (fallCheck == null) {
+			isMovingRight = !isMovingRight;
+			float xScale = Mathf.Abs (transform.localScale.x) * (isMovingRight ? -1 : 1);
+			transform.localScale = new Vector3 (xScale, transform.localScale.y, transform.localScale.z);
+		}
+
 		Vector3 deltaPos = velocity * Time.deltaTime;
 		if (groundCheck != null) {
 			deltaPos.y = Mathf.Min (groundCheck.distance, Mathf.Abs (deltaPos.y)) * Mathf.Sign (deltaPos.y);
 		}
 		transform.position += deltaPos;
+	}
+
+	void OnDrawGizmos ()
+	{
+		Gizmos.color = Color.blue;
+		Vector3 fallCheckOffset = Vector3.down * groundCheckRadius * 1.5f;
+		fallCheckOffset += (isMovingRight ? 1 : -1) * Vector3.right * groundCheckRadius;
+
+		Gizmos.DrawSphere (transform.position + fallCheckOffset, groundCheckDistance);
 	}
 }
