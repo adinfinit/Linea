@@ -11,7 +11,7 @@ public class ColorizeEffect : MonoBehaviour
 	public float fuzzyness = 0.1f;
 	public bool isBackgroundStatic;
 
-	public RenderTexture backgroundTexture, levelTexture;
+	public RenderTexture backgroundTexture, levelTexture, textTexture;
 	public Material blendMaterial;
 
 	private Shader shader;
@@ -45,9 +45,11 @@ public class ColorizeEffect : MonoBehaviour
 			2 * Camera.main.orthographicSize * Camera.main.aspect, 
 			2 * Camera.main.orthographicSize));
 
+		//Graphics.Blit (source, levelTexture);
 		Graphics.Blit (backgroundTexture, source);
 		Graphics.Blit (levelTexture, source, blendMaterial);
 		Graphics.Blit (source, destination, material);
+		Graphics.Blit (textTexture, destination, blendMaterial);
 		//Graphics.Blit (source, destination, material);
 	}
 }

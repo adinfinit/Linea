@@ -776,6 +776,8 @@ MonoBehaviour:
   groundCheckDistance: 0.1
   movementSpeed: 5
   walkCheckDistance: 0.5
+  attackDistance: 3
+  anim: {fileID: 95705954325121974}
 --- !u!114 &114507286877701028
 MonoBehaviour:
   m_ObjectHideFlags: 1

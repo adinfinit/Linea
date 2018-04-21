@@ -34,7 +34,6 @@ public class PlayerController : MonoBehaviour
 	private float lastAnimationSpeed = 0.0f;
 
 	Animator animator;
-	bool facingRight = true;
 
 	void Awake ()
 	{
@@ -43,48 +42,53 @@ public class PlayerController : MonoBehaviour
 		animator = GetComponent<Animator> ();
 	}
 
-	Vector3 GroundCheck1(){
-		Vector3 center = transform.position + GroundCheck;
-		center.x += GroundSpread;
+	Vector3 GroundCheck1 ()
+	{
+		var bounds = boxCollider.bounds;
+		Vector3 center = new Vector3 (bounds.center.x + GroundSpread, bounds.min.y - GroundRadius);
 		return center;
 	}
 
-	Vector3 GroundCheck2(){
-		Vector3 center = transform.position + GroundCheck;
-		center.x -= GroundSpread;
-		return center;
-	}
-	
-	Vector3 HeadCheck1(){
-		Vector3 head = GroundCheck;
-		head.y = -head.y;
-		Vector3 center = transform.position + head;
-		center.x += GroundSpread;
+	Vector3 GroundCheck2 ()
+	{
+		var bounds = boxCollider.bounds;
+		Vector3 center = new Vector3 (bounds.center.x - GroundSpread, bounds.min.y - GroundRadius);
 		return center;
 	}
 
-	Vector3 HeadCheck2(){
-		Vector3 head = GroundCheck;
-		head.y = -head.y;
-		Vector3 center = transform.position + head;
-		center.x -= GroundSpread;
+	Vector3 HeadCheck1 ()
+	{
+		var bounds = boxCollider.bounds;
+		Vector3 center = new Vector3 (bounds.center.x + GroundSpread, bounds.max.y + GroundRadius);
 		return center;
 	}
-	
+
+	Vector3 HeadCheck2 ()
+	{
+		var bounds = boxCollider.bounds;
+		Vector3 center = new Vector3 (bounds.center.x - GroundSpread, bounds.max.y + GroundRadius);
+		return center;
+	}
+
+	bool hitsCircle (Vector2 pos, float radius)
+	{
+		return Physics2D.OverlapCircle (pos, radius, GroundLayer);
+	}
+
 	void Update ()
 	{
 		direction.x = Input.GetAxisRaw ("Horizontal");
 		direction.y = Input.GetAxisRaw ("Vertical");
 
-		grounded = Physics2D.OverlapCircle(GroundCheck1(), GroundRadius, GroundLayer) || 
-			Physics2D.OverlapCircle(GroundCheck2(), GroundRadius, GroundLayer);
+		grounded = hitsCircle (GroundCheck1 (), GroundRadius) ||
+		hitsCircle (GroundCheck2 (), GroundRadius);
 
-		hitHead = Physics2D.OverlapCircle(HeadCheck1(), GroundRadius, GroundLayer) || 
-			Physics2D.OverlapCircle(HeadCheck2(), GroundRadius, GroundLayer);
+		hitHead = hitsCircle (HeadCheck1 (), GroundRadius) ||
+		hitsCircle (HeadCheck2 (), GroundRadius);
 
 		bool jumpJustPressedSticky = Time.fixedTime - jumpStickyTime < 0.1f;
 		bool jumpJustPressed = Input.GetButtonDown ("Jump");
-		if(!grounded && jumpJustPressed && !jumpJustPressedSticky){
+		if (!grounded && jumpJustPressed && !jumpJustPressedSticky) {
 			jumpStickyTime = Time.fixedTime;
 		}
 
@@ -97,13 +101,13 @@ public class PlayerController : MonoBehaviour
 			jumpStickyTime = 0;
 		}
 
-		if(hitHead){
+		if (hitHead) {
 			jumpLastTime = 0;
 			jumpStickyTime = 0;
 		}
 		
 		if (jumpJustPressed) {
-			if(jumpCount == 0){
+			if (jumpCount == 0) {
 				jumpFirstTime = Time.fixedTime;
 			}
 			jumpCount++;
@@ -134,38 +138,39 @@ public class PlayerController : MonoBehaviour
 
 		bool justJumpedFromGround = (jumpCount == 1 && (jumpTime < JustTime));
 		if (grounded || justJumpedFromGround) {
-			if(Mathf.Abs(direction.x) > 0.1f){
-				if(justJumpedFromGround) {
-					velocity.x = Mathf.Max(velocity.x, direction.x * MaxSpeed * jumpTime / JustTime);
+			if (Mathf.Abs (direction.x) > 0.1f) {
+				if (justJumpedFromGround) {
+					velocity.x = Mathf.Max (velocity.x, direction.x * MaxSpeed * jumpTime / JustTime);
 				} else {
 					velocity.x = direction.x * MaxSpeed;
 				}
 			} else {
-				if(!justJumpedFromGround){
+				if (!justJumpedFromGround) {
 					velocity.x *= 0.8f;
 				}
 			}
 		}
-		if(!grounded) {
-			var force = new Vector2(direction.x * AirborneControlForce, 0f);
-			body.AddForce(force);
+		if (!grounded) {
+			var force = new Vector2 (direction.x * AirborneControlForce, 0f);
+			body.AddForce (force);
 		}
-
-		velocity.x = Mathf.Clamp(velocity.x, -MaxSpeed, MaxSpeed);
-
-		float newAnimationSpeed = Mathf.Abs(body.velocity.x) / MaxSpeed;
-		lastAnimationSpeed = Mathf.Clamp(newAnimationSpeed, lastAnimationSpeed -0.2f,  lastAnimationSpeed +0.2f);
-		animator.SetFloat("Speed", lastAnimationSpeed);
-
+		 
+		velocity.x = Mathf.Clamp (velocity.x, -MaxSpeed, MaxSpeed);
+		float newAnimationSpeed = Mathf.Abs (body.velocity.x) / MaxSpeed;
 		body.velocity = velocity;
 
+		lastAnimationSpeed = Mathf.Clamp (newAnimationSpeed, lastAnimationSpeed - 0.2f, lastAnimationSpeed + 0.2f);
+		animator.SetFloat ("Speed", lastAnimationSpeed);
+
+		if (Input.GetButtonDown ("Fire1")) {
+			animator.Play ("Attack", -1, 0);
+		}
+
 		if (direction.x > 0.1f) {
-			facingRight = true;
 			if (transform.localScale.x < 0) {
 				transform.localScale = new Vector3 (-transform.localScale.x, transform.localScale.y, transform.localScale.z);
 			}
 		} else if (direction.x < -0.1f) {
-			facingRight = false;
 			if (transform.localScale.x > 0) {
 				transform.localScale = new Vector3 (-transform.localScale.x, transform.localScale.y, transform.localScale.z);
 			}
@@ -174,12 +179,15 @@ public class PlayerController : MonoBehaviour
 
 	void OnDrawGizmos ()
 	{
+		if (boxCollider == null) {
+			boxCollider = GetComponent<BoxCollider2D> ();
+		}
 		Gizmos.color = grounded ? Color.green : Color.blue;
-		Gizmos.DrawSphere (GroundCheck1(), GroundRadius);
-		Gizmos.DrawSphere (GroundCheck2(), GroundRadius);
+		Gizmos.DrawSphere (GroundCheck1 (), GroundRadius);
+		Gizmos.DrawSphere (GroundCheck2 (), GroundRadius);
 
 		Gizmos.color = hitHead ? Color.green : Color.blue;
-		Gizmos.DrawSphere (HeadCheck1(), GroundRadius);
-		Gizmos.DrawSphere (HeadCheck2(), GroundRadius);
+		Gizmos.DrawSphere (HeadCheck1 (), GroundRadius);
+		Gizmos.DrawSphere (HeadCheck2 (), GroundRadius);
 	}
 }
