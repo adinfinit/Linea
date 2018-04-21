@@ -44,8 +44,7 @@ public class NPCController : MonoBehaviour
 	{
 		lives--;
 		if (lives <= 0) {
-			// anim.Play ("death");
-			Die ();
+			anim.Play ("death");
 		}
 	}
 
