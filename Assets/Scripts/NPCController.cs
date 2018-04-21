@@ -25,6 +25,21 @@ public class NPCController : MonoBehaviour
 		
 	}
 
+	private bool attacked = false;
+
+	public void StartAttack ()
+	{
+		attacked = false;
+		anim.Play ("attack");
+	}
+
+	public void Attack ()
+	{
+		if (attacked)
+			return;
+		attacked = true;
+	}
+
 	public void HitByPlayer ()
 	{
 		lives--;
@@ -36,31 +51,43 @@ public class NPCController : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		RaycastHit2D[] groundCheck = Physics2D.CircleCastAll (transform.position, groundCheckRadius, Vector2.down);
-		if (groundCheck.Length > 1 && groundCheck [1].distance <= groundCheckDistance) {
-			
-			velocity.y = 0;
-			velocity.x = movementSpeed * (isMovingRight ? 1 : -1) * (Mathf.Sin(Time.time * Mathf.PI * 2) + 2) / 2;
-			RaycastHit2D[] walkCheck = Physics2D.CircleCastAll(transform.position, groundCheckRadius-0.1f, new Vector2(isMovingRight ? 1 : -1, 0));
+		LayerMask levelMask = 1 << LayerMask.NameToLayer ("Default");
+		LayerMask playerMask = 1 << LayerMask.NameToLayer ("Player");
+		LayerMask enemyMask = 1 << LayerMask.NameToLayer ("Enemy");
 
-			if (walkCheck.Length > 1) {
-				if (walkCheck [1].distance < attackDistance && walkCheck [1].collider.gameObject.tag == "Player") {
-					anim.Play ("attack");
-				} else if (walkCheck [1].distance <= walkCheckDistance) {
-					//Debug.Log(walkCheck[1].collider.gameObject);
+		RaycastHit2D groundCheck = Physics2D.CircleCast (transform.position, groundCheckRadius, Vector2.down, groundCheckDistance, levelMask);
+		if (groundCheck != null && groundCheck.distance < groundCheckDistance) {
+			velocity.y *= 0.9f;
+			velocity.x = movementSpeed * (isMovingRight ? 1 : -1) * (Mathf.Sin (Time.time * Mathf.PI * 2) + 2) / 2;
+			
+			RaycastHit2D[] walkChecks = Physics2D.CircleCastAll (
+				transform.position + Vector3.up * 0.5f,
+				groundCheckRadius - 0.1f,
+				new Vector2 (isMovingRight ? 1 : -1, 0),
+				Mathf.Max(walkCheckDistance, attackDistance),
+				levelMask | playerMask | enemyMask
+			);
+
+			foreach (var check in walkChecks)
+			{
+				if(check.collider.gameObject == this.gameObject) continue;
+				
+				if (check.distance < attackDistance && check.collider.gameObject.tag == "Player") {
+					StartAttack ();
+					break;
+				} else if  (check.distance < walkCheckDistance) {
 					isMovingRight = !isMovingRight;
 					float xScale = Mathf.Abs (transform.localScale.x) * (isMovingRight ? -1 : 1);
 					transform.localScale = new Vector3 (xScale, transform.localScale.y, transform.localScale.z);
 				}
 			}
 		} else {
-			//Debug.Log(groundCheck[1].distance);
 			velocity += new Vector3 (0, -1, 0);
 		}
 
 		Vector3 deltaPos = velocity * Time.deltaTime;
-		if (groundCheck.Length > 1) {
-			deltaPos.y = Mathf.Min (groundCheck [1].distance, Mathf.Abs (deltaPos.y)) * Mathf.Sign (deltaPos.y);
+		if (groundCheck != null) {
+			deltaPos.y = Mathf.Min (groundCheck.distance, Mathf.Abs (deltaPos.y)) * Mathf.Sign (deltaPos.y);
 		}
 		transform.position += deltaPos;
 	}

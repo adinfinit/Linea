@@ -71,6 +71,7 @@ GameObject:
   - component: {fileID: 4621036341061552}
   - component: {fileID: 58140350293708076}
   - component: {fileID: 114464951129017562}
+  - component: {fileID: 50922764210362576}
   m_Layer: 10
   m_Name: EnemyDog
   m_TagString: Untagged
@@ -615,6 +616,26 @@ Transform:
   m_Father: {fileID: 4495215835916218}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 11.846001}
+--- !u!50 &50922764210362576
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1153151263405534}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!58 &58140350293708076
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -627,9 +648,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.23, y: -0.14}
+  m_Offset: {x: -0.09, y: 0.05}
   serializedVersion: 2
-  m_Radius: 1.05
+  m_Radius: 0.83
 --- !u!95 &95705954325121974
 Animator:
   serializedVersion: 3
