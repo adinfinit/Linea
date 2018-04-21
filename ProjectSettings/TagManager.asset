@@ -14,9 +14,9 @@ TagManager:
   - 
   - 
   - Background
-  - Character
-  - 
-  - 
+  - Player
+  - Enemy
+  - Text
   - 
   - 
   - 
