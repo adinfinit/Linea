@@ -7,6 +7,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 	public float MaxSpeed = 20f;
+	public float MaxFallSpeed = 40f;
 	public float MinJumpVelocity = 5.0f;
 	public float MaxJumpVelocity = 30.0f;
 	public float MaxHangTime = 0.4f;
@@ -108,6 +109,9 @@ public class PlayerController : MonoBehaviour
 			if (jumpCount == 0) {
 				jumpFirstTime = Time.fixedTime;
 			}
+			if((jumpCount == 0) && !grounded){
+				jumpCount++;
+			}
 			jumpCount++;
 			jumpLastTime = Time.fixedTime;
 		}
@@ -154,6 +158,7 @@ public class PlayerController : MonoBehaviour
 		}
 		 
 		velocity.x = Mathf.Clamp (velocity.x, -MaxSpeed, MaxSpeed);
+		velocity.y = Mathf.Clamp (velocity.y, -MaxFallSpeed, MaxFallSpeed * 2f);
 		float newAnimationSpeed = Mathf.Abs (body.velocity.x) / MaxSpeed;
 		body.velocity = velocity;
 
