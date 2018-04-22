@@ -16,6 +16,8 @@ public class CameraFollower : MonoBehaviour {
     public LayerMask cameraZoomMask;
 
     void Start() {
+        if(player == null) return;
+        offset = transform.position - player.transform.position;
         CameraManager cameraManager = GetComponent<CameraManager>();
         textCamera = GameObject.Find("TextCamera").GetComponent<Camera>();
         backgroundCamera = cameraManager.backgroundCamera;
@@ -23,6 +25,7 @@ public class CameraFollower : MonoBehaviour {
     }
 
     void Update() {
+        if (player == null) return;
         ZoomAndMove();
         transform.position = player.transform.position + offset;
     }
