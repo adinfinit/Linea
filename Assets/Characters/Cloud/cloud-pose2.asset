@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae0543fe805424df99fe08ce744cbe49, type: 3}
+  m_Name: cloud-pose2
+  m_EditorClassIdentifier: 
+  m_PoseEntries:
+  - path: GameObject/1
+    localPosition: {x: 0, y: 0, z: 24.188002}
+    localRotation: {x: 0, y: 0, z: 0.28146762, w: 0.9595707}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: GameObject/1/2
+    localPosition: {x: 0.8680438, y: -0.00000011920929, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.42284754, w: 0.9062009}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: GameObject/1/2/3
+    localPosition: {x: 2.4906392, y: -0.0000001937151, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.21024989, w: 0.9776477}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: GameObject/1/2/3/4
+    localPosition: {x: 1.1173447, y: 0.0000014603138, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.192933, w: 0.98121196}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: GameObject/1/2/3/4/5
+    localPosition: {x: 1.146934, y: 0.00000024586916, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.29962367, w: 0.95405746}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: GameObject/11
+    localPosition: {x: 3.2629538, y: -0.253177, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.932128, w: 0.3621289}
+    localScale: {x: 1.0000007, y: 1.0000007, z: 1}
+  - path: GameObject/11/New 22
+    localPosition: {x: 1.1848176, y: 0, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.39444724, w: 0.9189186}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: GameObject/11/New 22/33
+    localPosition: {x: 2.3147397, y: -0.00000011920929, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.25886962, w: 0.96591234}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: GameObject/11/New 22/33/44
+    localPosition: {x: 0.9133513, y: 0.00000008940697, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.42433378, w: 0.9055059}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: GameObject/11/New 22/33/44/55
+    localPosition: {x: 1.8245662, y: -0.0000015127443, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.47800767, w: 0.87835574}
+    localScale: {x: 1, y: 1, z: 1}

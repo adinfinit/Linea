@@ -109,7 +109,7 @@ public class PlayerController : MonoBehaviour
 			if (jumpCount == 0) {
 				jumpFirstTime = Time.fixedTime;
 			}
-			if((jumpCount == 0) && !grounded){
+			if ((jumpCount == 0) && !grounded) {
 				jumpCount++;
 			}
 			jumpCount++;
@@ -204,7 +204,7 @@ public class PlayerController : MonoBehaviour
 		if (hit == null)
 			return;
 		
-		NPCController enemy = hit.GetComponent<NPCController> ();
+		WalkingController enemy = hit.GetComponent<WalkingController> ();
 		if (enemy == null)
 			return;
 
