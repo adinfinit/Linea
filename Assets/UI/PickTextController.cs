@@ -59,7 +59,7 @@ public class PickTextController : MonoBehaviour {
 			dialogText.SetActive(true);
 			while(index < beginDialog.speech.Length){
 				Vector3 newPos = dialogText.transform.position;
-				if((target == null) || ((index % 2 == 0) == !beginDialog.playerBegins)){
+				if((target == null) || ((index % 2 == 0) == beginDialog.playerBegins)){
 					newPos.x = GameObject.FindGameObjectsWithTag("Player")[0].transform.position.x;
 				}else{
 					newPos.x = target.transform.position.x;
@@ -136,8 +136,9 @@ public class PickTextController : MonoBehaviour {
 				player.GetComponent<PlayerController>().enabled = true;
 				gameObject.SetActive(false);
 			}else{
-				target.GetComponent<Collider2D>().enabled = false;
-				target.GetComponent<Rigidbody2D>().isKinematic = true;
+				foreach(Collider2D c in target.GetComponentsInChildren<Collider2D>()) 
+					c.enabled = false;
+				target.GetComponentInChildren<Rigidbody2D>().isKinematic = true;
 				StartCoroutine(MoveToCoroutine());
 				player.GetComponent<PlayerController>().minions.Add(target);
 			}
@@ -150,8 +151,8 @@ public class PickTextController : MonoBehaviour {
 	IEnumerator MoveToCoroutine(){
 		GameObject player = GameObject.FindGameObjectsWithTag("Player")[0];
 		PlayerController pc = player.GetComponent<PlayerController>();
-		target.MoveTo(player.transform.position + new Vector3(Mathf.Pow(-1, pc.minions.Count)*pc.minions.Count/2, 1, 0));
-		while((target.transform.position - player.transform.position).magnitude > 1.0f)
+		target.MoveTo(player.transform.position + new Vector3(Mathf.Pow(-1, pc.minions.Count)*Mathf.Ceil((pc.minions.Count+1)/2), 1, 0));
+		while(target.GetMovementEnabled())
 			yield return null;
 		target.transform.parent = player.transform;
 		pc.enabled = true;
