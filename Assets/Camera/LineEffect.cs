@@ -9,7 +9,7 @@ public class LineEffect : MonoBehaviour
 	[Range (0, 5)]
 	public int iterations = 3;
 
-	private Shader shader;
+	public Shader shader;
 	private Material material;
 
 	private Camera effectCamera;
@@ -17,7 +17,8 @@ public class LineEffect : MonoBehaviour
 	// Creates a private material used to the effect
 	void Awake ()
 	{
-		shader = Shader.Find ("Hidden/LineEffect");
+		if (shader == null)
+			shader = Shader.Find ("Hidden/LineEffect");
 		material = new Material (shader);
 		effectCamera = GetComponent<Camera> ();
 	}
