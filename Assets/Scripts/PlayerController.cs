@@ -34,6 +34,11 @@ public class PlayerController : AnimationEventTarget
 	private float lastAnimationSpeed = 0.0f;
 	Animator animator;
 
+	void Start ()
+	{
+		spawnPosition = transform.position;
+	}
+
 	void Awake ()
 	{
 		body = GetComponent<Rigidbody2D> ();
@@ -216,12 +221,30 @@ public class PlayerController : AnimationEventTarget
 
 	public void HitByEnemy ()
 	{
-		// TODO:
+		animator.Play ("Death");
 	}
 
 	override public void Die ()
 	{
-		Destroy (gameObject);
+		animator.Play ("Locomotion");
+		if (lastCheckpoint == null)
+			transform.position = spawnPosition;
+		else
+			transform.position = lastCheckpoint.transform.position;
+	}
+
+	Vector3 spawnPosition;
+	Checkpoint lastCheckpoint = null;
+
+	public void SetCheckpoint (Checkpoint checkpoint)
+	{
+		if (lastCheckpoint == checkpoint)
+			return;
+		
+		if (lastCheckpoint != null)
+			lastCheckpoint.PlayerFoundNew ();
+
+		lastCheckpoint = checkpoint;
 	}
 
 	#region Debug

@@ -9,6 +9,9 @@ public class AnimationEvents : MonoBehaviour
 	void Awake ()
 	{
 		Target = transform.parent.gameObject.GetComponent<AnimationEventTarget> ();
+		if (Target == null) {
+			Debug.LogError ("AnimationEventTarget missing");
+		}
 	}
 
 	public void Attack ()
