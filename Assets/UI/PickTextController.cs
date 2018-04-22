@@ -46,9 +46,14 @@ public class PickTextController : MonoBehaviour {
 	public IEnumerator DialogCoroutine(){
 
 		prompt.SetActive(true);
+		prompt.GetComponent<TextMeshPro>().text = "!";
 		// Do beginning dialog
 		if(beginDialog != null){
 			int index = 0;
+
+			yield return new WaitForSeconds(1.0f);
+
+			prompt.GetComponent<TextMeshPro>().text = "[SPACE]";
 			dialogText.SetActive(true);
 			while(index < beginDialog.speech.Length){
 				Vector3 newPos = dialogText.transform.position;
@@ -129,9 +134,16 @@ public class PickTextController : MonoBehaviour {
 		}else{
 			target.GetComponent<Collider2D>().enabled = false;
 			target.GetComponent<Rigidbody2D>().isKinematic = true;
-			target.MoveTo(player.transform.position + new Vector3(1, 1, 0));
-			target.transform.parent = player.transform;
+			StartCoroutine(MoveToCoroutine());
 		}
+	}
+
+	IEnumerator MoveToCoroutine(){
+		GameObject player = GameObject.FindGameObjectsWithTag("Player")[0];
+		target.MoveTo(player.transform.position + new Vector3(0, 1, 0));
+		while((target.transform.position - player.transform.position).magnitude > 1.0f)
+			yield return null;
+		target.transform.parent = player.transform;
 		player.GetComponent<PlayerController>().enabled = true;
 		gameObject.SetActive(false);
 	}

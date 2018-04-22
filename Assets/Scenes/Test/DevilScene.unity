@@ -419,12 +419,12 @@ Prefab:
         type: 2}
       propertyPath: m_TargetTexture
       value: 
-      objectReference: {fileID: 1264617501}
+      objectReference: {fileID: 1985727138}
     - target: {fileID: 20342119103625474, guid: cc59e32d8ef16d34fa1c4785beed9b69,
         type: 2}
       propertyPath: m_TargetTexture
       value: 
-      objectReference: {fileID: 2125511823}
+      objectReference: {fileID: 1020720117}
     - target: {fileID: 114822752507917610, guid: cc59e32d8ef16d34fa1c4785beed9b69,
         type: 2}
       propertyPath: backgroundTexture
@@ -447,7 +447,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc59e32d8ef16d34fa1c4785beed9b69, type: 2}
   m_IsPrefabParent: 0
---- !u!84 &1264617501
+--- !u!84 &1020720117
 RenderTexture:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -459,7 +459,7 @@ RenderTexture:
   m_ForcedFallbackFormat: 4
   m_DownscaleFallback: 0
   m_Width: 870
-  m_Height: 432
+  m_Height: 556
   m_AntiAliasing: 1
   m_DepthFormat: 0
   m_ColorFormat: 0
@@ -478,7 +478,7 @@ RenderTexture:
     m_WrapW: 1
   m_Dimension: 2
   m_VolumeDepth: 1
---- !u!84 &2125511823
+--- !u!84 &1985727138
 RenderTexture:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -490,7 +490,7 @@ RenderTexture:
   m_ForcedFallbackFormat: 4
   m_DownscaleFallback: 0
   m_Width: 870
-  m_Height: 432
+  m_Height: 556
   m_AntiAliasing: 1
   m_DepthFormat: 0
   m_ColorFormat: 0
