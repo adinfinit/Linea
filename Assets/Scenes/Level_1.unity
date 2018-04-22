@@ -3638,46 +3638,26 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 20968921505834768, guid: 1c046ab9da5144cb59bafa5b39ad38d3,
-        type: 2}
-      propertyPath: m_TargetTexture
-      value: 
-      objectReference: {fileID: 1068751218}
-    - target: {fileID: 20953407414548168, guid: 1c046ab9da5144cb59bafa5b39ad38d3,
-        type: 2}
-      propertyPath: m_TargetTexture
-      value: 
-      objectReference: {fileID: 1570186003}
     - target: {fileID: 20870400195188878, guid: 1c046ab9da5144cb59bafa5b39ad38d3,
         type: 2}
       propertyPath: m_TargetTexture
       value: 
       objectReference: {fileID: 12812997}
+    - target: {fileID: 20968921505834768, guid: 1c046ab9da5144cb59bafa5b39ad38d3,
+        type: 2}
+      propertyPath: m_TargetTexture
+      value: 
+      objectReference: {fileID: 1068751218}
     - target: {fileID: 114709093157347994, guid: 1c046ab9da5144cb59bafa5b39ad38d3,
         type: 2}
       propertyPath: player
       value: 
       objectReference: {fileID: 951726309}
-    - target: {fileID: 114709093157347994, guid: 1c046ab9da5144cb59bafa5b39ad38d3,
+    - target: {fileID: 20953407414548168, guid: 1c046ab9da5144cb59bafa5b39ad38d3,
         type: 2}
-      propertyPath: cameraZoomMask.m_Bits
-      value: 4096
-      objectReference: {fileID: 0}
-    - target: {fileID: 114709093157347994, guid: 1c046ab9da5144cb59bafa5b39ad38d3,
-        type: 2}
-      propertyPath: offset.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114709093157347994, guid: 1c046ab9da5144cb59bafa5b39ad38d3,
-        type: 2}
-      propertyPath: offset.y
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 20356820440570046, guid: 1c046ab9da5144cb59bafa5b39ad38d3,
-        type: 2}
-      propertyPath: m_AllowDynamicResolution
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: m_TargetTexture
+      value: 
+      objectReference: {fileID: 1570186003}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1c046ab9da5144cb59bafa5b39ad38d3, type: 2}
   m_IsPrefabParent: 0
