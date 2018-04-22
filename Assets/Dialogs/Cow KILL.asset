@@ -11,5 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 608b03e7d56664bad8205e4cbde155d6, type: 3}
   m_Name: Cow KILL
   m_EditorClassIdentifier: 
-  speech: []
-  playerBegins: 0
+  speech:
+  - "As the mad cow charged towards the farmer, he put an end to the cow\u2019s misery. "
+  - All other cows were saved from mad cow disease. Reputation +1
+  playerBegins: 1

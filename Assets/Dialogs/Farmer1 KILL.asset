@@ -11,5 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 608b03e7d56664bad8205e4cbde155d6, type: 3}
   m_Name: Farmer1 KILL
   m_EditorClassIdentifier: 
-  speech: []
-  playerBegins: 0
+  speech:
+  - 'Walking forward, the farmer saw his friendly neighbour, and immediately killed
+    him. '
+  - Heartbreaking! Reputation -2
+  playerBegins: 1

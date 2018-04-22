@@ -11,5 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 608b03e7d56664bad8205e4cbde155d6, type: 3}
   m_Name: Bakter HUG
   m_EditorClassIdentifier: 
-  speech: []
-  playerBegins: 0
+  speech:
+  - In an unexpected turn of events, the idiot farmer invited a literal shitstorm
+    to the dance party. Reputation -2
+  playerBegins: 1

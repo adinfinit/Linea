@@ -11,5 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 608b03e7d56664bad8205e4cbde155d6, type: 3}
   m_Name: Lind HUG
   m_EditorClassIdentifier: 
-  speech: []
-  playerBegins: 0
+  speech:
+  - Upon seeing the chicken king (get it, a CHICKen KING), the farmer was impressed,
+    and infected her with the dance plague.
+  - That meant there was no chicken soup and the whole village starved, many children
+    died. Reputation -2
+  playerBegins: 1

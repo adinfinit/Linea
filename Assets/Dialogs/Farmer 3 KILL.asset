@@ -11,5 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 608b03e7d56664bad8205e4cbde155d6, type: 3}
   m_Name: Farmer 3 KILL
   m_EditorClassIdentifier: 
-  speech: []
-  playerBegins: 0
+  speech:
+  - 'Moving forward, the farmer came across a friendly face, who he killed for.. reasons. '
+  - No pity for starving kids! Reputation -2
+  playerBegins: 1

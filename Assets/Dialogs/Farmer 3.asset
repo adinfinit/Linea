@@ -11,5 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 608b03e7d56664bad8205e4cbde155d6, type: 3}
   m_Name: Farmer 3
   m_EditorClassIdentifier: 
-  speech: []
+  speech:
+  - My kids are starving
   playerBegins: 0

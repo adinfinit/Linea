@@ -11,5 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 608b03e7d56664bad8205e4cbde155d6, type: 3}
   m_Name: Kaalikas HUG
   m_EditorClassIdentifier: 
-  speech: []
-  playerBegins: 0
+  speech:
+  - 'A little ways down the road, a turnip appeared, but the idiot farmer danced with
+    it instead of making stew. '
+  - The whole village went hungry. Reputation -2.
+  playerBegins: 1

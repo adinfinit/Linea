@@ -11,5 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 608b03e7d56664bad8205e4cbde155d6, type: 3}
   m_Name: TUTORIAL
   m_EditorClassIdentifier: 
-  speech: []
-  playerBegins: 0
+  speech:
+  - ONCE UPON A TIME, A FARMER ATE SOME BAD BREAD AND GOT THE DANCING PLAGUE
+  - "Uh Oh looks like I can\u2019t stop dancing"
+  - But I need to go and protect my farm from evil!!
+  - And make some food for the village
+  - Farm, here I come!
+  - LITTLE DID HE KNOW THE PLAGUE WAS CONTAGIOUS!!!!
+  playerBegins: 1

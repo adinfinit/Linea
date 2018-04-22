@@ -11,5 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 608b03e7d56664bad8205e4cbde155d6, type: 3}
   m_Name: Farmer1 HUG
   m_EditorClassIdentifier: 
-  speech: []
-  playerBegins: 0
+  speech:
+  - Walking forward, the farmer saw his friendly neighbour, and infected him with
+    the dancing plague.
+  - Friendship goals! Reputation +1
+  playerBegins: 1
