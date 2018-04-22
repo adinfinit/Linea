@@ -15,6 +15,7 @@ public class CameraFollower : MonoBehaviour {
     public LayerMask cameraZoomMask;
 
     void Start() {
+        if(player == null) return;
         offset = transform.position - player.transform.position;
         CameraManager cameraManager = GetComponent<CameraManager>();
         textCamera = GameObject.Find("TextCamera").GetComponent<Camera>();
@@ -23,6 +24,7 @@ public class CameraFollower : MonoBehaviour {
     }
 
     void Update() {
+        if(player == null) return;
         transform.position = player.transform.position + offset;
 
         //update camera zoom depending on the desired zoom (if in a 'zone').
