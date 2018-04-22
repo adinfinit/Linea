@@ -1235,6 +1235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxSpeed: 20
+  MaxFallSpeed: 40
   MinJumpVelocity: 5
   MaxJumpVelocity: 30
   MaxHangTime: 0.4
