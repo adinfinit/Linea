@@ -282,7 +282,7 @@ GameObject:
   - component: {fileID: 50332897355889606}
   - component: {fileID: 61026403883424744}
   - component: {fileID: 114833389000377936}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Farmer Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}

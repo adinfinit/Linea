@@ -3575,10 +3575,26 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_GenerateMotionCurves: 0
   m_Events:
+  - time: 0.31666666
+    functionName: PlayClip
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 1376a155ecc576442a3bff8636611ed9,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.33333334
     functionName: PlayClip
     data: 
     objectReferenceParameter: {fileID: 8300000, guid: 5566b127bfdb2ea4da428b4f5c1206c6,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.75
+    functionName: PlayClip
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: a1a9cf763a42de64babbe4df2494849a,
       type: 3}
     floatParameter: 0
     intParameter: 0
