@@ -50,6 +50,9 @@ public class PickTextController : MonoBehaviour {
 		if(beginDialog != null){
 			int index = 0;
 			dialogText.SetActive(true);
+			dialogText.GetComponent<TextMeshPro>().text = beginDialog.speech[index];
+			yield return new WaitForSeconds(1.0f);
+
 			while(index < beginDialog.speech.Length){
 				Vector3 newPos = dialogText.transform.position;
 				if((index % 2 == 0) == !beginDialog.playerBegins){
