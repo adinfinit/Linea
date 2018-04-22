@@ -4015,6 +4015,14 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_GenerateMotionCurves: 0
   m_Events:
+  - time: 0.033333335
+    functionName: PlayClip
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: d1daade4202d5f64eb15736a6b6eba3c,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.11666667
     functionName: Attack
     data: 
