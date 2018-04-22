@@ -161,16 +161,16 @@ Prefab:
         type: 2}
       propertyPath: m_TargetTexture
       value: 
-      objectReference: {fileID: 950358046}
+      objectReference: {fileID: 1472409973}
     - target: {fileID: 20833240124885494, guid: cc59e32d8ef16d34fa1c4785beed9b69,
         type: 2}
       propertyPath: m_TargetTexture
       value: 
-      objectReference: {fileID: 1701002072}
+      objectReference: {fileID: 1369577971}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc59e32d8ef16d34fa1c4785beed9b69, type: 2}
   m_IsPrefabParent: 0
---- !u!84 &950358046
+--- !u!84 &1369577971
 RenderTexture:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -182,7 +182,7 @@ RenderTexture:
   m_ForcedFallbackFormat: 4
   m_DownscaleFallback: 0
   m_Width: 870
-  m_Height: 296
+  m_Height: 556
   m_AntiAliasing: 1
   m_DepthFormat: 0
   m_ColorFormat: 0
@@ -201,7 +201,7 @@ RenderTexture:
     m_WrapW: 1
   m_Dimension: 2
   m_VolumeDepth: 1
---- !u!84 &1701002072
+--- !u!84 &1472409973
 RenderTexture:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -213,7 +213,7 @@ RenderTexture:
   m_ForcedFallbackFormat: 4
   m_DownscaleFallback: 0
   m_Width: 870
-  m_Height: 296
+  m_Height: 556
   m_AntiAliasing: 1
   m_DepthFormat: 0
   m_ColorFormat: 0
@@ -300,6 +300,10 @@ Prefab:
         type: 2}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4109474183892648, guid: d3f83cda8d6a2bd4a8033b532983c236, type: 2}
+      propertyPath: m_LocalScale.x
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d3f83cda8d6a2bd4a8033b532983c236, type: 2}
