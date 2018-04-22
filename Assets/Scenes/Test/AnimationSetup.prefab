@@ -289,7 +289,7 @@ Camera:
   field of view: 60
   orthographic: 1
   orthographic size: 7.33
-  m_Depth: 0
+  m_Depth: 3
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 0
@@ -547,9 +547,9 @@ MonoBehaviour:
   parallaxSpeed: 0
   fuzzyness: 0.004
   isBackgroundStatic: 0
-  backgroundTexture: {fileID: 0}
-  levelTexture: {fileID: 0}
-  textTexture: {fileID: 0}
+  backgroundCamera: {fileID: 20342119103625474}
+  levelCamera: {fileID: 20833240124885494}
+  textCamera: {fileID: 20193357255920854}
   blendMaterial: {fileID: 2100000, guid: 6250b15223f0742c7af1fcc6750dd972, type: 2}
 --- !u!114 &114886707846342522
 MonoBehaviour:

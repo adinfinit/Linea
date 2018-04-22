@@ -108,7 +108,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1373628785762428}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 3.3890357, y: 2.2805228, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0.78420186}
   m_Children:
   - {fileID: 4591558714072014}
@@ -191,7 +191,7 @@ Camera:
   field of view: 60
   orthographic: 1
   orthographic size: 7.33
-  m_Depth: 0
+  m_Depth: 3
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 0
@@ -384,9 +384,9 @@ MonoBehaviour:
   parallaxSpeed: 0
   fuzzyness: 0.004
   isBackgroundStatic: 0
-  backgroundTexture: {fileID: 0}
-  levelTexture: {fileID: 0}
-  textTexture: {fileID: 0}
+  backgroundCamera: {fileID: 20870400195188878}
+  levelCamera: {fileID: 20968921505834768}
+  textCamera: {fileID: 20953407414548168}
   blendMaterial: {fileID: 2100000, guid: 6250b15223f0742c7af1fcc6750dd972, type: 2}
 --- !u!114 &114659910633521664
 MonoBehaviour:
@@ -417,7 +417,7 @@ MonoBehaviour:
   DefaultCameraZoom: 10
   cameraZoomMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4096
 --- !u!124 &124086954469742872
 Behaviour:
   m_ObjectHideFlags: 1
