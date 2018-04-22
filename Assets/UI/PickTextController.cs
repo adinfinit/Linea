@@ -115,7 +115,7 @@ public class PickTextController : MonoBehaviour {
 				dialogText.SetActive(true);
 				while(index < choiceDialog.speech.Length){
 					Vector3 newPos = dialogText.transform.position;
-					if((target == null) || ((index % 2 == 0) == !choiceDialog.playerBegins)){
+					if((target == null) || ((index % 2 == 0) == choiceDialog.playerBegins)){
 						newPos.x = GameObject.FindGameObjectsWithTag("Player")[0].transform.position.x;
 					}else{
 						newPos.x = target.transform.position.x;
