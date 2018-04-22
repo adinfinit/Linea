@@ -195,7 +195,6 @@ public class PlayerController : AnimationEventTarget
 
 	public override void Attack ()
 	{
-		Debug.Log ("ATTACK ATTACK ATTACK");
 		if (attacked)
 			return;
 
@@ -220,7 +219,7 @@ public class PlayerController : AnimationEventTarget
 		// TODO:
 	}
 
-	void Die ()
+	override public void Die ()
 	{
 		Destroy (gameObject);
 	}
