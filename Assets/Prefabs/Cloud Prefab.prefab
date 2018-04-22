@@ -72,6 +72,7 @@ GameObject:
   - component: {fileID: 114132433026523648}
   - component: {fileID: 61777243373086928}
   - component: {fileID: 50461428605978402}
+  - component: {fileID: 114634347980611132}
   m_Layer: 0
   m_Name: Cloud Prefab
   m_TagString: Untagged
@@ -757,6 +758,21 @@ MonoBehaviour:
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4745214927040574}
   m_AttachedIK: {fileID: 0}
+--- !u!114 &114634347980611132
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1087966469700394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69ba4a14784c0f64eb648c95e7ad34b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  size: {x: 5, y: 5, z: 1}
+  speed: 0.1
+  LightningPrefab: {fileID: 1378132215118400, guid: 34e03418251223c45b494c58714b9f4b,
+    type: 2}
 --- !u!114 &114682376392396468
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -855,7 +871,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 43052084680927032, guid: ff656b69142decd49af2804e93ec1dc6, type: 2}
+  m_Mesh: {fileID: 0}
   m_Bones:
   - {fileID: 4114318708205050}
   - {fileID: 4440428961303558}
