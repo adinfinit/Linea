@@ -53,6 +53,7 @@ GameObject:
   - component: {fileID: 4089195873175290}
   - component: {fileID: 114378547374288124}
   - component: {fileID: 95620604502918156}
+  - component: {fileID: 114297418849951496}
   m_Layer: 0
   m_Name: Animator
   m_TagString: Untagged
@@ -427,7 +428,7 @@ GameObject:
   - component: {fileID: 61513709760591938}
   - component: {fileID: 50083343084605308}
   - component: {fileID: 114896016676958748}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Devil Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -963,7 +964,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 2.072956
+  m_Length: 2.0729551
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4986779579611904}
   m_AttachedIK: {fileID: 114022458056565612}
@@ -1037,7 +1038,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 3.0623665
+  m_Length: 3.0623658
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4888608677987166}
   m_AttachedIK: {fileID: 114293463942489718}
@@ -1094,6 +1095,18 @@ MonoBehaviour:
     m_RestoreDefaultPose: 1
     targetPosition: {x: 0, y: 3.03, z: 0}
     flip: 0
+--- !u!114 &114297418849951496
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1243038542014138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a86ef96c24e1f794697f4926409351a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 0}
 --- !u!114 &114311136866150246
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1238,7 +1251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 2.1791723
+  m_Length: 2.1791718
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4443135700333924}
   m_AttachedIK: {fileID: 114632236367021654}
@@ -1397,7 +1410,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 2.179172
+  m_Length: 2.1791718
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4988423225562072}
   m_AttachedIK: {fileID: 114156942079137374}
