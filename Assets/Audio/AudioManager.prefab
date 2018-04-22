@@ -65,7 +65,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8313b1b39612c2446839d59da525cb23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  primaryTrack: {fileID: 8300000, guid: b370d6fae5ddf884bb157d9e49efd7d7, type: 3}
+  mixer: {fileID: 24300002, guid: 3abee8e055ab019408c3c6b09f072054, type: 2}
+  primaryTrack: {fileID: 0}
   crossfadeCurve:
     serializedVersion: 2
     m_Curve:
