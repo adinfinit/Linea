@@ -179,11 +179,11 @@ public class PlayerController : AnimationEventTarget
 		}
 
 		if (direction.x > 0.1f) {
-			if (transform.localScale.x < 0) {
+			if (transform.localScale.x > 0) {
 				transform.localScale = new Vector3 (-transform.localScale.x, transform.localScale.y, transform.localScale.z);
 			}
 		} else if (direction.x < -0.1f) {
-			if (transform.localScale.x > 0) {
+			if (transform.localScale.x < 0) {
 				transform.localScale = new Vector3 (-transform.localScale.x, transform.localScale.y, transform.localScale.z);
 			}
 		}
