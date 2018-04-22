@@ -232,9 +232,14 @@ public class PlayerController : AnimationEventTarget
 		enemy.HitByPlayer ();
 	}
 
-	public void HitByEnemy ()
+	public void Kill ()
 	{
 		animator.Play ("Death");
+	}
+
+	public void HitByEnemy ()
+	{
+		Kill ();
 	}
 
 	override public void Die ()

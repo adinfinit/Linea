@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 608b03e7d56664bad8205e4cbde155d6, type: 3}
+  m_Name: Dog HUG
+  m_EditorClassIdentifier: 
+  speech:
+  - The first thing the farmer did that day, was hug his dog
+  - "..because that\u2019s how you\u2019re supposed to treat your friends. Good going
+    farmer! "
+  - The dog got the plague tho. Reputation +1
+  playerBegins: 1
