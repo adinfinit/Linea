@@ -61,14 +61,16 @@ public class CameraFollower : MonoBehaviour
 		float desiredZoom = DefaultCameraZoom;
 		if (zoomCollider == null) {
 			desiredZoom = DefaultCameraZoom;
-			offset.Set (0, 0, 0);
+            offset = initialOffset;
 		} else {
 			CameraZoom cameraZoom = zoomCollider.gameObject.GetComponent<CameraZoom> ();
 			//Ignore zoom value from 'zone' when not a positive number.
 			if (cameraZoom.ZoomValue > 0) {
 				desiredZoom = cameraZoom.ZoomValue;
 			}
-			offset = cameraZoom.Offset;
+            if (cameraZoom.Offset != Vector3.zero) {
+                offset = cameraZoom.Offset;
+            }
 		}
 
 		float nextZoom = 0;
