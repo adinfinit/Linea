@@ -235,6 +235,7 @@ public class PlayerController : AnimationEventTarget
 	public void Kill ()
 	{
 		animator.Play ("Death");
+		enabled = false;
 	}
 
 	public void HitByEnemy ()
@@ -244,6 +245,7 @@ public class PlayerController : AnimationEventTarget
 
 	override public void Die ()
 	{
+		enabled = true;
 		animator.Play ("Locomotion");
 		if (lastCheckpoint == null)
 			transform.position = spawnPosition;
