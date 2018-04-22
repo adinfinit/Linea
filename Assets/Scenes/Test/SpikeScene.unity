@@ -156,21 +156,21 @@ Prefab:
         type: 2}
       propertyPath: m_TargetTexture
       value: 
-      objectReference: {fileID: 1884728509}
+      objectReference: {fileID: 140634934}
     - target: {fileID: 20833240124885494, guid: cc59e32d8ef16d34fa1c4785beed9b69,
         type: 2}
       propertyPath: m_TargetTexture
       value: 
-      objectReference: {fileID: 1376056563}
+      objectReference: {fileID: 1305729251}
     - target: {fileID: 20193357255920854, guid: cc59e32d8ef16d34fa1c4785beed9b69,
         type: 2}
       propertyPath: m_TargetTexture
       value: 
-      objectReference: {fileID: 650395599}
+      objectReference: {fileID: 1768158455}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc59e32d8ef16d34fa1c4785beed9b69, type: 2}
   m_IsPrefabParent: 0
---- !u!84 &650395599
+--- !u!84 &140634934
 RenderTexture:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -181,8 +181,8 @@ RenderTexture:
     Hash: 00000000000000000000000000000000
   m_ForcedFallbackFormat: 4
   m_DownscaleFallback: 0
-  m_Width: 870
-  m_Height: 410
+  m_Width: 1148
+  m_Height: 559
   m_AntiAliasing: 1
   m_DepthFormat: 0
   m_ColorFormat: 0
@@ -201,7 +201,7 @@ RenderTexture:
     m_WrapW: 1
   m_Dimension: 2
   m_VolumeDepth: 1
---- !u!84 &1376056563
+--- !u!84 &1305729251
 RenderTexture:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -212,8 +212,8 @@ RenderTexture:
     Hash: 00000000000000000000000000000000
   m_ForcedFallbackFormat: 4
   m_DownscaleFallback: 0
-  m_Width: 870
-  m_Height: 410
+  m_Width: 1148
+  m_Height: 559
   m_AntiAliasing: 1
   m_DepthFormat: 0
   m_ColorFormat: 0
@@ -232,7 +232,7 @@ RenderTexture:
     m_WrapW: 1
   m_Dimension: 2
   m_VolumeDepth: 1
---- !u!84 &1884728509
+--- !u!84 &1768158455
 RenderTexture:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -243,8 +243,8 @@ RenderTexture:
     Hash: 00000000000000000000000000000000
   m_ForcedFallbackFormat: 4
   m_DownscaleFallback: 0
-  m_Width: 870
-  m_Height: 410
+  m_Width: 1148
+  m_Height: 559
   m_AntiAliasing: 1
   m_DepthFormat: 0
   m_ColorFormat: 0
