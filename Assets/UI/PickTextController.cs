@@ -149,11 +149,12 @@ public class PickTextController : MonoBehaviour {
 
 	IEnumerator MoveToCoroutine(){
 		GameObject player = GameObject.FindGameObjectsWithTag("Player")[0];
-		target.MoveTo(player.transform.position + new Vector3(0, 1, 0));
+		PlayerController pc = player.GetComponent<PlayerController>();
+		target.MoveTo(player.transform.position + new Vector3(Mathf.Pow(-1, pc.minions.Count)*pc.minions.Count/2, 1, 0));
 		while((target.transform.position - player.transform.position).magnitude > 1.0f)
 			yield return null;
 		target.transform.parent = player.transform;
-		player.GetComponent<PlayerController>().enabled = true;
+		pc.enabled = true;
 		gameObject.SetActive(false);
 	}
 }
