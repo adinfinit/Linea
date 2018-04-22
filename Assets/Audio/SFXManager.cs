@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
-using UnityEditor;
 
 public class SFXManager : MonoBehaviour
 {
@@ -18,7 +17,7 @@ public class SFXManager : MonoBehaviour
 	{
 		sfxPlayers = new AudioSource[numSFXPlayers];
 
-		for (int i = 0; i < this.numSFXPlayers; i++){
+		for (int i = 0; i < this.numSFXPlayers; i++) {
 			sfxPlayers [i] = gameObject.AddComponent<AudioSource> ();
 			sfxPlayers [i].outputAudioMixerGroup = mixer;
 		}
