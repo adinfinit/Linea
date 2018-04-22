@@ -129,6 +129,8 @@ public class WalkingBehavior : NPCBase
 			transform.localScale = new Vector3 (xScale, transform.localScale.y, transform.localScale.z);
 		}
 
+		animator.SetFloat ("Speed", Mathf.Abs (velocity.x / movementSpeed));
+
 		Vector3 deltaPos = velocity * Time.deltaTime;
 		if (groundCheck != null) {
 			deltaPos.y = Mathf.Min (groundCheck.distance, Mathf.Abs (deltaPos.y)) * Mathf.Sign (deltaPos.y);

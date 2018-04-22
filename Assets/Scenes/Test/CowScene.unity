@@ -156,7 +156,7 @@ Prefab:
         type: 2}
       propertyPath: m_TargetTexture
       value: 
-      objectReference: {fileID: 1615908869}
+      objectReference: {fileID: 1661128320}
     - target: {fileID: 20193357255920854, guid: cc59e32d8ef16d34fa1c4785beed9b69,
         type: 2}
       propertyPath: m_TargetTexture
@@ -166,9 +166,51 @@ Prefab:
         type: 2}
       propertyPath: m_TargetTexture
       value: 
-      objectReference: {fileID: 1074957459}
+      objectReference: {fileID: 1325381830}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc59e32d8ef16d34fa1c4785beed9b69, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &125673676
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4963554265977052, guid: 5c19299dcd24e004aaf812a49ea4d68c, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -15.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 4963554265977052, guid: 5c19299dcd24e004aaf812a49ea4d68c, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 4.3644886
+      objectReference: {fileID: 0}
+    - target: {fileID: 4963554265977052, guid: 5c19299dcd24e004aaf812a49ea4d68c, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -7.8554688
+      objectReference: {fileID: 0}
+    - target: {fileID: 4963554265977052, guid: 5c19299dcd24e004aaf812a49ea4d68c, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4963554265977052, guid: 5c19299dcd24e004aaf812a49ea4d68c, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4963554265977052, guid: 5c19299dcd24e004aaf812a49ea4d68c, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4963554265977052, guid: 5c19299dcd24e004aaf812a49ea4d68c, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4963554265977052, guid: 5c19299dcd24e004aaf812a49ea4d68c, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 5c19299dcd24e004aaf812a49ea4d68c, type: 2}
   m_IsPrefabParent: 0
 --- !u!84 &578177668
 RenderTexture:
@@ -270,10 +312,73 @@ Prefab:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 114588810031528806, guid: 1cbeed9d4d7739746a230f8e1a6d8259,
+        type: 2}
+      propertyPath: groundCheckDistance
+      value: 0.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 114588810031528806, guid: 1cbeed9d4d7739746a230f8e1a6d8259,
+        type: 2}
+      propertyPath: groundCheckRadius
+      value: 1.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 114588810031528806, guid: 1cbeed9d4d7739746a230f8e1a6d8259,
+        type: 2}
+      propertyPath: movementSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4134738425733730, guid: 1cbeed9d4d7739746a230f8e1a6d8259, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0.78129613
+      objectReference: {fileID: 0}
+    - target: {fileID: 4134738425733730, guid: 1cbeed9d4d7739746a230f8e1a6d8259, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.6241605
+      objectReference: {fileID: 0}
+    - target: {fileID: 4134738425733730, guid: 1cbeed9d4d7739746a230f8e1a6d8259, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -102.759
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821100372507216, guid: 1cbeed9d4d7739746a230f8e1a6d8259, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0.39761958
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821100372507216, guid: 1cbeed9d4d7739746a230f8e1a6d8259, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.9175504
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821100372507216, guid: 1cbeed9d4d7739746a230f8e1a6d8259, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -46.859
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917647543455644, guid: 1cbeed9d4d7739746a230f8e1a6d8259, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0.8809155
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917647543455644, guid: 1cbeed9d4d7739746a230f8e1a6d8259, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.47327358
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917647543455644, guid: 1cbeed9d4d7739746a230f8e1a6d8259, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 123.506004
+      objectReference: {fileID: 0}
+    - target: {fileID: 4122652872092412, guid: 1cbeed9d4d7739746a230f8e1a6d8259, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0.8539857
+      objectReference: {fileID: 0}
+    - target: {fileID: 4122652872092412, guid: 1cbeed9d4d7739746a230f8e1a6d8259, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.5202964
+      objectReference: {fileID: 0}
+    - target: {fileID: 4122652872092412, guid: 1cbeed9d4d7739746a230f8e1a6d8259, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 117.296005
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1cbeed9d4d7739746a230f8e1a6d8259, type: 2}
   m_IsPrefabParent: 0
---- !u!84 &1074957459
+--- !u!84 &1325381830
 RenderTexture:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -285,7 +390,7 @@ RenderTexture:
   m_ForcedFallbackFormat: 4
   m_DownscaleFallback: 0
   m_Width: 870
-  m_Height: 296
+  m_Height: 432
   m_AntiAliasing: 1
   m_DepthFormat: 0
   m_ColorFormat: 0
@@ -304,7 +409,7 @@ RenderTexture:
     m_WrapW: 1
   m_Dimension: 2
   m_VolumeDepth: 1
---- !u!84 &1615908869
+--- !u!84 &1661128320
 RenderTexture:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -316,7 +421,7 @@ RenderTexture:
   m_ForcedFallbackFormat: 4
   m_DownscaleFallback: 0
   m_Width: 870
-  m_Height: 296
+  m_Height: 432
   m_AntiAliasing: 1
   m_DepthFormat: 0
   m_ColorFormat: 0
