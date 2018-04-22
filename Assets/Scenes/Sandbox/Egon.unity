@@ -1178,17 +1178,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
-    - target: {fileID: 114908013354680834, guid: 9ddb0534940186c46ab06fdca7538b49,
-        type: 2}
-      propertyPath: primaryTrack
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114908013354680834, guid: 9ddb0534940186c46ab06fdca7538b49,
-        type: 2}
-      propertyPath: mixer
-      value: 
-      objectReference: {fileID: 24300002, guid: 3abee8e055ab019408c3c6b09f072054,
-        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ddb0534940186c46ab06fdca7538b49, type: 2}
   m_IsPrefabParent: 0
@@ -1220,7 +1209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20fc0e0c80b54b04db7174b88f9f43d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 4681ebe3125869847b32dfdf0d4194f8, type: 3}
+  clip: {fileID: 0}
 --- !u!61 &1849864491
 BoxCollider2D:
   m_ObjectHideFlags: 0
