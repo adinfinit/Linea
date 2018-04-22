@@ -140,7 +140,6 @@ public class PickTextController : MonoBehaviour {
 					c.enabled = false;
 				target.GetComponentInChildren<Rigidbody2D>().isKinematic = true;
 				StartCoroutine(MoveToCoroutine());
-				player.GetComponent<PlayerController>().minions.Add(target);
 			}
 		}else{
 			player.GetComponent<PlayerController>().enabled = true;
@@ -151,11 +150,13 @@ public class PickTextController : MonoBehaviour {
 	IEnumerator MoveToCoroutine(){
 		GameObject player = GameObject.FindGameObjectsWithTag("Player")[0];
 		PlayerController pc = player.GetComponent<PlayerController>();
+		pc.enabled = false;
 		target.MoveTo(player.transform.position + new Vector3(Mathf.Pow(-1, pc.minions.Count)*Mathf.Ceil((pc.minions.Count+1)/2), 1, 0));
-		while(target.GetMovementEnabled())
+		while((player.transform.position + new Vector3(Mathf.Pow(-1, pc.minions.Count)*Mathf.Ceil((pc.minions.Count+1)/2), 1, 0) - target.transform.position).magnitude > 0.1f)
 			yield return null;
 		target.transform.parent = player.transform;
 		pc.enabled = true;
 		gameObject.SetActive(false);
+		player.GetComponent<PlayerController>().minions.Add(target);
 	}
 }
