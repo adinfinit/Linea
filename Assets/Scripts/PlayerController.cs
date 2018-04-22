@@ -19,6 +19,8 @@ public class PlayerController : AnimationEventTarget
 	public float GroundSpread = 0.5f;
 	public LayerMask GroundLayer;
 
+	public List<NPCBase> minions;
+
 	private Rigidbody2D body;
 	private BoxCollider2D bodyCollider;
 
@@ -48,6 +50,10 @@ public class PlayerController : AnimationEventTarget
 			animator = GetComponentInChildren<Animator> ();
 		if (attackCollider == null)
 			attackCollider = transform.Find ("AttackCollider").gameObject.GetComponent<BoxCollider2D> ();
+	}
+
+	void OnDisable(){
+		body.velocity = -Vector3.up;
 	}
 
 	Vector3 GroundCheck1 ()
@@ -173,6 +179,13 @@ public class PlayerController : AnimationEventTarget
 
 		lastAnimationSpeed = Mathf.Clamp (newAnimationSpeed, lastAnimationSpeed - 0.2f, lastAnimationSpeed + 0.2f);
 		animator.SetFloat ("Speed", lastAnimationSpeed);
+		foreach (NPCBase npc in minions)
+		{
+			Animator anim = npc.gameObject.GetComponentInChildren<Animator>();
+			if(anim != null){
+				anim.SetFloat ("Speed", lastAnimationSpeed);
+			}
+		}
 
 		if (Input.GetButtonDown ("Fire1")) {
 			StartAttack ();
