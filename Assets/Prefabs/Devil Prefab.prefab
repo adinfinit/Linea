@@ -1398,6 +1398,7 @@ MonoBehaviour:
   GroundLayer:
     serializedVersion: 2
     m_Bits: 1
+  minions: []
 --- !u!114 &114970094092453498
 MonoBehaviour:
   m_ObjectHideFlags: 1
