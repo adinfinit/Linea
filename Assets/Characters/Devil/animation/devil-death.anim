@@ -2167,6 +2167,14 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_GenerateMotionCurves: 0
   m_Events:
+  - time: 0
+    functionName: PlayClip
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: fd69c9db5c7388c438c1462c9ead1072,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.6666667
     functionName: Die
     data: 
