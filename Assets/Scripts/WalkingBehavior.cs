@@ -14,6 +14,7 @@ public class WalkingBehavior : NPCBase
 	public int lives = 1;
 
 	private Animator animator;
+	private Collider2D attackCollider;
 
 	private bool isMovingRight;
 
@@ -23,6 +24,15 @@ public class WalkingBehavior : NPCBase
 	void Awake ()
 	{
 		animator = GetComponentInChildren<Animator> ();
+
+		var attack = transform.Find ("AttackCollider");
+		if (attack != null) {
+			attackCollider = attack.GetComponent<Collider2D> ();
+		}
+
+		if (attackCollider == null) {
+			Debug.LogError ("Attack Collider missing.");
+		}
 	}
 
 	private bool attacked = false;
@@ -37,9 +47,27 @@ public class WalkingBehavior : NPCBase
 	{
 		if (attacked)
 			return;
+		if (attackCollider == null) {
+			return;
+		}
+
+		Collider2D[] hits = new Collider2D[1];
+		ContactFilter2D filter = new ContactFilter2D ();
+		filter.SetLayerMask (1 << LayerMask.NameToLayer ("Player"));
+		Physics2D.OverlapCollider (attackCollider, filter, hits);
+		Collider2D hit = hits [0];
+		if (hit == null)
+			return;
+
+		PlayerController player = hit.GetComponent<PlayerController> ();
+		if (player == null)
+			return;
+
+		attacked = true;
+		player.HitByEnemy ();
+
 		attacked = true;
 
-		// TODO:
 	}
 
 	public void HitByPlayer ()

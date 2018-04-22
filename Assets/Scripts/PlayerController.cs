@@ -216,12 +216,14 @@ public class PlayerController : AnimationEventTarget
 
 	public void HitByEnemy ()
 	{
-		// TODO:
+		animator.Play ("Death");
 	}
 
 	override public void Die ()
 	{
-		Destroy (gameObject);
+		// TODO: return to checkpoint
+		animator.Play ("Locomotion");
+		// Destroy (gameObject);
 	}
 
 	#region Debug
