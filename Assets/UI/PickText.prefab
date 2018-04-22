@@ -717,10 +717,10 @@ MonoBehaviour:
   arrow: {fileID: 4167597253090852}
   target: {fileID: 0}
   selectionColor: {r: 0.88235295, g: 0.8601599, b: 0.07785469, a: 1}
-  beginDialog: {fileID: 11400000, guid: b913303db2db649e091ea2f5d393c2fc, type: 2}
+  beginDialog: {fileID: 0}
   killDialog: {fileID: 0}
   hugDialog: {fileID: 0}
-  dialogText: {fileID: 0}
+  dialogText: {fileID: 1712011880606728}
 --- !u!114 &114336463389404484
 MonoBehaviour:
   m_ObjectHideFlags: 1
