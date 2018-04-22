@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent (typeof(Collider2D))]
-public class NPCController : MonoBehaviour
+public class WalkingController : MonoBehaviour
 {
 
 	public float groundCheckRadius = 1f;
