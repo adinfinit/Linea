@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae0543fe805424df99fe08ce744cbe49, type: 3}
+  m_Name: dog
+  m_EditorClassIdentifier: 
+  m_PoseEntries:
+  - path: GameObject/New bone
+    localPosition: {x: 6.138651, y: -2.583377, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.93684006, w: 0.34975806}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: GameObject/New bone/New bone
+    localPosition: {x: 0.9003498, y: 0, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.024337336, w: 0.9997039}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: GameObject/New bone/New bone (1)
+    localPosition: {x: 0.9682609, y: -0.36017132, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.78489196, w: 0.6196327}
+    localScale: {x: 1.0000015, y: 1.0000015, z: 1}
+  - path: GameObject/New bone/New bone (2)
+    localPosition: {x: 3.4281738, y: -0.04562998, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.6088081, w: 0.79331756}
+    localScale: {x: 1.0000015, y: 1.0000015, z: 1}
+  - path: GameObject/New bone/New bone (3)
+    localPosition: {x: 4.518081, y: -0.23366117, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.10318848, w: 0.99466187}
+    localScale: {x: 1.0000015, y: 1.0000015, z: 1}
+  - path: GameObject/New bone/New bone (4)
+    localPosition: {x: 8.763772, y: 2.3363118, z: 0}
+    localRotation: {x: -0, y: -0, z: 0.1031885, w: 0.99466187}
+    localScale: {x: 1.0000004, y: 1.0000004, z: 1}
+  - path: GameObject/New bone/New bone (4)/New bone
+    localPosition: {x: 2.599999, y: -0.00000009685751, z: 0}
+    localRotation: {x: 0, y: 0, z: 0, w: 1}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: GameObject/New bone/jaw
+    localPosition: {x: 8.295993, y: 5.3950152, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.21694823, w: 0.9761832}
+    localScale: {x: 1.0000004, y: 1.0000004, z: 1}
+  - path: GameObject/New bone/jaw/jaw2
+    localPosition: {x: 2.1164145, y: 0.000000335276, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.21644999, w: 0.97629374}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: GameObject/New bone/leg1
+    localPosition: {x: 5.668807, y: 5.0954046, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.9097567, w: 0.41514185}
+    localScale: {x: 1.000001, y: 1.000001, z: 1}
+  - path: GameObject/New bone/leg1/New bone
+    localPosition: {x: 1.5963581, y: 0.00000035762756, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.06436645, w: 0.99792635}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: GameObject/New bone/leg2
+    localPosition: {x: 2.757121, y: 2.6517048, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.82241833, w: 0.5688833}
+    localScale: {x: 1.0000002, y: 1.0000002, z: 1}
+  - path: GameObject/New bone/leg2/New bone
+    localPosition: {x: 1.5494326, y: -0.00000023841852, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.07260044, w: 0.9973611}
+    localScale: {x: 1, y: 1, z: 1}
