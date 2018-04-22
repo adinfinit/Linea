@@ -55,7 +55,7 @@ public class WalkingBehavior : NPCBase
 	{
 		if (lives <= 0)
 			return;
-		if (!MovementEnabled)
+		if (!GetMovementEnabled ())
 			return;
 
 		LayerMask levelMask = 1 << LayerMask.NameToLayer ("Default");
