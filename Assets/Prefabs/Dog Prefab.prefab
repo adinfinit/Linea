@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 50942213631599642}
   - component: {fileID: 58402409181446018}
   - component: {fileID: 114299603324388172}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Dog Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
