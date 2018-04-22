@@ -3,6 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraZoom : MonoBehaviour {
-    public float ZoomValue = 10f;
-    public float Angle = 0f;
+    public float ZoomValue = 10f, Angle = 0f;
+    public Vector3 Offset = new Vector3(0, 0, 0);
 }

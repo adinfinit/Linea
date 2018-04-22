@@ -136,7 +136,7 @@ public class PlayerController : MonoBehaviour
 			body.gravityScale = 12.0f;
 		}
 
-		const float JustTime = 0.2f;
+		const float JustTime = 0.1f;
 
 		bool justJumpedFromGround = (jumpCount == 1 && (jumpTime < JustTime));
 		if (grounded || justJumpedFromGround) {
