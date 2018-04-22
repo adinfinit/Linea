@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class BackgroundMusic : MonoBehaviour
 {
+	public AudioMixerGroup mixer;
 	public static BackgroundMusic MainInstance = null;
 
 	public AudioClip primaryTrack;
@@ -28,9 +30,13 @@ public class BackgroundMusic : MonoBehaviour
 
 		primary = gameObject.AddComponent<AudioSource> ();
 		primary.loop = true;
+		if (mixer != null)
+			primary.outputAudioMixerGroup = mixer;
 
 		secondary = gameObject.AddComponent<AudioSource> ();
 		secondary.loop = true;
+		if (mixer != null)
+			secondary.outputAudioMixerGroup = mixer;
 
 		primary.clip = primaryTrack;
 	}
