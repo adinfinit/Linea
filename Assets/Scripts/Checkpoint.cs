@@ -5,11 +5,11 @@ using UnityEngine;
 public class Checkpoint : MonoBehaviour
 {
 	Vector3 initialScale;
-	GameObject animator;
+	Animator animator;
 
 	void Start ()
 	{
-		animator = transform.Find ("AnimatorStub").gameObject;
+		animator = GetComponentInChildren<Animator> ();
 		initialScale = animator.transform.localScale;
 	}
 
@@ -23,12 +23,11 @@ public class Checkpoint : MonoBehaviour
 			return;
 
 		controller.SetCheckpoint (this);
-
-		animator.transform.localScale = initialScale * 2;
+		animator.Play ("active");
 	}
 
 	public void PlayerFoundNew ()
 	{
-		animator.transform.localScale = initialScale;
+		animator.Play ("inactive");
 	}
 }
