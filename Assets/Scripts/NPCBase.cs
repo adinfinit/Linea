@@ -15,4 +15,8 @@ public abstract class NPCBase : AnimationEventTarget
 	{
 		return MovementEnabled;
 	}
+
+	public virtual void MoveTo(Vector3 target){
+		transform.position = target;
+	}
 }
