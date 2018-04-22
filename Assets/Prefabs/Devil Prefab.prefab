@@ -1393,8 +1393,8 @@ MonoBehaviour:
   MaxHangTime: 0.4
   AirborneControlForce: 100
   Gravity: 10
-  GroundRadius: 0.3
-  GroundSpread: 0.5
+  GroundRadius: 0.25
+  GroundSpread: 0.4
   GroundLayer:
     serializedVersion: 2
     m_Bits: 1
