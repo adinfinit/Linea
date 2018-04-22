@@ -9,10 +9,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 608b03e7d56664bad8205e4cbde155d6, type: 3}
-  m_Name: DialogData
+  m_Name: Dog HUG
   m_EditorClassIdentifier: 
   speech:
-  - Hi dog
-  - Woof
-  - What should I do?..
+  - The first thing the farmer did that day, was hug his dog
+  - "..because that\u2019s how you\u2019re supposed to treat your friends. Good going
+    farmer! "
+  - The dog got the plague tho. Reputation +1
   playerBegins: 1

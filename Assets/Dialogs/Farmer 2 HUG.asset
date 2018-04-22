@@ -9,10 +9,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 608b03e7d56664bad8205e4cbde155d6, type: 3}
-  m_Name: DialogData
+  m_Name: Farmer 2 HUG
   m_EditorClassIdentifier: 
   speech:
-  - Hi dog
-  - Woof
-  - What should I do?..
+  - Feeling pity for his fellow farmer, and slightly aroused by their styche, he gave
+    him a hug
+  - The other farmer joined the dance! Reputation +1
   playerBegins: 1

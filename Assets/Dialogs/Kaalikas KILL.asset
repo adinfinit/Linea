@@ -9,10 +9,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 608b03e7d56664bad8205e4cbde155d6, type: 3}
-  m_Name: DialogData
+  m_Name: Kaalikas KILL
   m_EditorClassIdentifier: 
   speech:
-  - Hi dog
-  - Woof
-  - What should I do?..
+  - A little ways down the road, the farmer killed a harmless turnip that had sprung
+    to life
+  - Everyone in the village got fed! Reputation +1
   playerBegins: 1
