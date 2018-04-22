@@ -14,13 +14,14 @@ public class ColorizeEffect : MonoBehaviour
 	public Camera backgroundCamera, levelCamera, textCamera;
 	public Material blendMaterial;
 
-	private Shader shader;
+	public Shader shader;
 	private Material material;
 
 	// Creates a private material used to the effect
 	void Awake ()
 	{
-		shader = Shader.Find ("Hidden/ColorizeEffect");
+		if (shader == null)
+			shader = Shader.Find ("Hidden/ColorizeEffect");
 		material = new Material (shader);
 	}
 
