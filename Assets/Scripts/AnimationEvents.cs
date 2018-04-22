@@ -31,6 +31,7 @@ public class AnimationEvents : MonoBehaviour
 
 	public void PlayClip (AudioClip sound)
 	{
-		sfxmanager.PlaySFX (sound);
+		if(sfxmanager != null)
+			sfxmanager.PlaySFX (sound);
 	}
 }
