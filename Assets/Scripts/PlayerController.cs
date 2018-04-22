@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent (typeof(Rigidbody))]
+[RequireComponent (typeof(Rigidbody2D))]
 [RequireComponent (typeof(BoxCollider2D))]
-public class PlayerController : MonoBehaviour
+public class PlayerController : AnimationEventTarget
 {
 	public float MaxSpeed = 20f;
 	public float MaxFallSpeed = 40f;
@@ -39,6 +39,10 @@ public class PlayerController : MonoBehaviour
 		body = GetComponent<Rigidbody2D> ();
 		bodyCollider = GetComponent<BoxCollider2D> ();
 		animator = GetComponent<Animator> ();
+		if (animator == null)
+			animator = GetComponentInChildren<Animator> ();
+		if (attackCollider == null)
+			attackCollider = transform.Find ("AttackCollider").gameObject.GetComponent<BoxCollider2D> ();
 	}
 
 	Vector3 GroundCheck1 ()
@@ -180,9 +184,7 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
-	[Header ("Attack")]
-
-	public BoxCollider2D AttackCollider;
+	private BoxCollider2D attackCollider;
 	private bool attacked = false;
 
 	void StartAttack ()
@@ -191,15 +193,16 @@ public class PlayerController : MonoBehaviour
 		animator.Play ("Attack", -1, 0);
 	}
 
-	void Attack ()
+	public override void Attack ()
 	{
+		Debug.Log ("ATTACK ATTACK ATTACK");
 		if (attacked)
 			return;
 
 		Collider2D[] hits = new Collider2D[1];
 		ContactFilter2D filter = new ContactFilter2D ();
 		filter.SetLayerMask (1 << LayerMask.NameToLayer ("Enemy"));
-		Physics2D.OverlapCollider (AttackCollider, filter, hits);
+		Physics2D.OverlapCollider (attackCollider, filter, hits);
 		Collider2D hit = hits [0];
 		if (hit == null)
 			return;
