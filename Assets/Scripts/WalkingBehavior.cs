@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent (typeof(Collider2D))]
-public class WalkingBehavior : AnimationEventTarget
+public class WalkingBehavior : NPCBase
 {
 
 	public float groundCheckRadius = 1f;
@@ -54,6 +54,8 @@ public class WalkingBehavior : AnimationEventTarget
 	void Update ()
 	{
 		if (lives <= 0)
+			return;
+		if (!MovementEnabled)
 			return;
 
 		LayerMask levelMask = 1 << LayerMask.NameToLayer ("Default");

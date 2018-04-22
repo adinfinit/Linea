@@ -2,9 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class NPCBase : MonoBehaviour {
+public abstract class NPCBase : AnimationEventTarget
+{
+	public bool MovementEnabled = true;
 
-	public abstract void SetMovementEnabled(bool enabled);
-	public abstract bool GetMovementEnabled();
+	public virtual void SetMovementEnabled (bool enabled)
+	{
+		MovementEnabled = enabled;	
+	}
 
+	public virtual bool GetMovementEnabled ()
+	{
+		return MovementEnabled;
+	}
 }
