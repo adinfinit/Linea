@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent (typeof(Collider2D))]
-public class WalkingController : MonoBehaviour
+public class WalkingBehavior : AnimationEventTarget
 {
 
 	public float groundCheckRadius = 1f;
@@ -13,16 +13,16 @@ public class WalkingController : MonoBehaviour
 	public float attackDistance = 1.0f;
 	public int lives = 1;
 
-	public Animator anim;
+	private Animator animator;
 
 	private bool isMovingRight;
 
 	Vector3 velocity = new Vector3 ();
 
 	// Use this for initialization
-	void Start ()
+	void Awake ()
 	{
-		
+		animator = GetComponentInChildren<Animator> ();
 	}
 
 	private bool attacked = false;
@@ -30,27 +30,24 @@ public class WalkingController : MonoBehaviour
 	public void StartAttack ()
 	{
 		attacked = false;
-		anim.Play ("attack");
+		animator.Play ("attack");
 	}
 
-	public void Attack ()
+	override public void Attack ()
 	{
 		if (attacked)
 			return;
 		attacked = true;
+
+		// TODO:
 	}
 
 	public void HitByPlayer ()
 	{
 		lives--;
 		if (lives <= 0) {
-			anim.Play ("death");
+			animator.Play ("death");
 		}
-	}
-
-	public void Die ()
-	{
-		Destroy (gameObject);
 	}
 
 	// Update is called once per frame

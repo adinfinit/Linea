@@ -206,7 +206,7 @@ public class PlayerController : AnimationEventTarget
 		if (hit == null)
 			return;
 		
-		WalkingController enemy = hit.GetComponent<WalkingController> ();
+		WalkingBehavior enemy = hit.GetComponent<WalkingBehavior> ();
 		if (enemy == null)
 			return;
 
