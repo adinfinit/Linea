@@ -113,7 +113,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!84 &356539899
+--- !u!84 &302767904
 RenderTexture:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -125,7 +125,7 @@ RenderTexture:
   m_ForcedFallbackFormat: 4
   m_DownscaleFallback: 0
   m_Width: 870
-  m_Height: 333
+  m_Height: 410
   m_AntiAliasing: 1
   m_DepthFormat: 0
   m_ColorFormat: 0
@@ -144,95 +144,80 @@ RenderTexture:
     m_WrapW: 1
   m_Dimension: 2
   m_VolumeDepth: 1
---- !u!1001 &450636826
+--- !u!84 &905890629
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 870
+  m_Height: 410
+  m_AntiAliasing: 1
+  m_DepthFormat: 0
+  m_ColorFormat: 0
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
+--- !u!1001 &941867677
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4068835191362590, guid: 7ff468c3f44ccd94cb83b8cb347f692d, type: 2}
+    - target: {fileID: 4429776398786558, guid: 0655b1d8ef60bf24b8cc9185942b1b6a, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4068835191362590, guid: 7ff468c3f44ccd94cb83b8cb347f692d, type: 2}
+    - target: {fileID: 4429776398786558, guid: 0655b1d8ef60bf24b8cc9185942b1b6a, type: 2}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4068835191362590, guid: 7ff468c3f44ccd94cb83b8cb347f692d, type: 2}
+    - target: {fileID: 4429776398786558, guid: 0655b1d8ef60bf24b8cc9185942b1b6a, type: 2}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4068835191362590, guid: 7ff468c3f44ccd94cb83b8cb347f692d, type: 2}
+    - target: {fileID: 4429776398786558, guid: 0655b1d8ef60bf24b8cc9185942b1b6a, type: 2}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4068835191362590, guid: 7ff468c3f44ccd94cb83b8cb347f692d, type: 2}
+    - target: {fileID: 4429776398786558, guid: 0655b1d8ef60bf24b8cc9185942b1b6a, type: 2}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4068835191362590, guid: 7ff468c3f44ccd94cb83b8cb347f692d, type: 2}
+    - target: {fileID: 4429776398786558, guid: 0655b1d8ef60bf24b8cc9185942b1b6a, type: 2}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4068835191362590, guid: 7ff468c3f44ccd94cb83b8cb347f692d, type: 2}
+    - target: {fileID: 4429776398786558, guid: 0655b1d8ef60bf24b8cc9185942b1b6a, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4068835191362590, guid: 7ff468c3f44ccd94cb83b8cb347f692d, type: 2}
+    - target: {fileID: 4429776398786558, guid: 0655b1d8ef60bf24b8cc9185942b1b6a, type: 2}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 137027260522030896, guid: 7ff468c3f44ccd94cb83b8cb347f692d,
-        type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 137841638911141562, guid: 7ff468c3f44ccd94cb83b8cb347f692d,
-        type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 137779928173695318, guid: 7ff468c3f44ccd94cb83b8cb347f692d,
-        type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 7ff468c3f44ccd94cb83b8cb347f692d, type: 2}
+  m_ParentPrefab: {fileID: 100100000, guid: 0655b1d8ef60bf24b8cc9185942b1b6a, type: 2}
   m_IsPrefabParent: 0
---- !u!84 &1484922165
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 870
-  m_Height: 333
-  m_AntiAliasing: 1
-  m_DepthFormat: 0
-  m_ColorFormat: 0
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
---- !u!1001 &1699442322
+--- !u!1001 &1814088173
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -275,21 +260,21 @@ Prefab:
         type: 2}
       propertyPath: m_TargetTexture
       value: 
-      objectReference: {fileID: 356539899}
-    - target: {fileID: 20342119103625474, guid: cc59e32d8ef16d34fa1c4785beed9b69,
-        type: 2}
-      propertyPath: m_TargetTexture
-      value: 
-      objectReference: {fileID: 1711523657}
+      objectReference: {fileID: 302767904}
     - target: {fileID: 20833240124885494, guid: cc59e32d8ef16d34fa1c4785beed9b69,
         type: 2}
       propertyPath: m_TargetTexture
       value: 
-      objectReference: {fileID: 1484922165}
+      objectReference: {fileID: 905890629}
+    - target: {fileID: 20342119103625474, guid: cc59e32d8ef16d34fa1c4785beed9b69,
+        type: 2}
+      propertyPath: m_TargetTexture
+      value: 
+      objectReference: {fileID: 2007848991}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc59e32d8ef16d34fa1c4785beed9b69, type: 2}
   m_IsPrefabParent: 0
---- !u!84 &1711523657
+--- !u!84 &2007848991
 RenderTexture:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -301,7 +286,7 @@ RenderTexture:
   m_ForcedFallbackFormat: 4
   m_DownscaleFallback: 0
   m_Width: 870
-  m_Height: 333
+  m_Height: 410
   m_AntiAliasing: 1
   m_DepthFormat: 0
   m_ColorFormat: 0
