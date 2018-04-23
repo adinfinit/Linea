@@ -50,8 +50,21 @@ public class BackgroundMusic : MonoBehaviour
 		InternalChangeTo (song);
 	}
 
+	float timeOffset = 0.0f;
+
+	public float getTime ()
+	{
+		if (secondary.clip != null)
+			return timeOffset + secondary.time;
+		if (primary.clip != null)
+			return timeOffset + primary.time;
+		return timeOffset + Time.time;
+	}
+
 	void InternalChangeTo (AudioClip song)
 	{
+		timeOffset = Time.time;
+
 		secondary.clip = song;
 		secondary.volume = 0.0f;
 		secondary.time = 0.0f;

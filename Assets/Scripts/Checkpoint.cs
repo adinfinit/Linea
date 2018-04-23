@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
-	Vector3 initialScale;
 	Animator animator;
 
 	void Start ()
 	{
 		animator = GetComponentInChildren<Animator> ();
-		initialScale = animator.transform.localScale;
 	}
 
 	void OnTriggerEnter2D (Collider2D other)

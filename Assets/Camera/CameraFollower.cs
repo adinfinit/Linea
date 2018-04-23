@@ -12,7 +12,7 @@ public class CameraFollower : MonoBehaviour
 
 	//Default zoom level of the camera
 	public float DefaultCameraZoom = 10;
-	private float ZoomChangePerUpdate = 0.5f, OffsetChangePerUpdate = 0.5f;
+	private float ZoomChangePerUpdate = 0.5f;
 	private Camera textCamera, backgroundCamera, levelCamera;
 
 	public LayerMask cameraZoomMask;
@@ -61,16 +61,16 @@ public class CameraFollower : MonoBehaviour
 		float desiredZoom = DefaultCameraZoom;
 		if (zoomCollider == null) {
 			desiredZoom = DefaultCameraZoom;
-            offset = initialOffset;
+			offset = initialOffset;
 		} else {
 			CameraZoom cameraZoom = zoomCollider.gameObject.GetComponent<CameraZoom> ();
 			//Ignore zoom value from 'zone' when not a positive number.
 			if (cameraZoom.ZoomValue > 0) {
 				desiredZoom = cameraZoom.ZoomValue;
 			}
-            if (cameraZoom.Offset != Vector3.zero) {
-                offset = cameraZoom.Offset;
-            }
+			if (cameraZoom.Offset != Vector3.zero) {
+				offset = cameraZoom.Offset;
+			}
 		}
 
 		float nextZoom = 0;

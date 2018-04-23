@@ -108,7 +108,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1373628785762428}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.336994, y: -5.739872, z: 0}
+  m_LocalPosition: {x: -4.336994, y: -4.739872, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0.78420186}
   m_Children:
   - {fileID: 4591558714072014}
@@ -333,10 +333,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colors:
-  - {r: 0.88235295, g: 0.18166092, b: 0.18166092, a: 0}
-  - {r: 0.4660176, g: 0.88235295, b: 0.18039213, a: 0}
-  - {r: 0.18039213, g: 0.5918862, b: 0.88235295, a: 0}
-  - {r: 0.88235295, g: 0.18039213, b: 0.6015689, a: 0}
+  - {r: 0.7294118, g: 0.34901962, b: 0.34901962, a: 0}
+  - {r: 0.38431373, g: 0.5294118, b: 0.28235295, a: 0}
+  - {r: 0.36078432, g: 0.54901963, b: 0.68235296, a: 0}
+  - {r: 0.62352943, g: 0.34117648, b: 0.654902, a: 0}
   colorizer: {fileID: 114557026932380136}
   bpm: 120
 --- !u!114 &114111680643112944
@@ -379,11 +379,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 936b62f5ffc7e2447a9c87d57e209db1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  line: {r: 0, g: 0, b: 0, a: 1}
+  line: {r: 0.029411793, g: 0.029411793, b: 0.029411793, a: 1}
   background: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
   paperTexture: {fileID: 2800000, guid: 7b2b5649da756441091bd3bb12b993b7, type: 3}
   parallaxSpeed: 0
-  fuzzyness: 0.004
+  fuzzyness: 0.003
   isBackgroundStatic: 0
   backgroundCamera: {fileID: 20870400195188878}
   levelCamera: {fileID: 20968921505834768}
@@ -416,7 +416,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  offset: {x: 0, y: 4, z: 0}
+  offset: {x: 0, y: 5, z: 0}
   DefaultCameraZoom: 10
   cameraZoomMask:
     serializedVersion: 2
