@@ -84,6 +84,9 @@ public class PlayerController : AnimationEventTarget
 
 	void Update ()
 	{
+		if (Input.GetKey("escape"))
+			Application.Quit();
+
 		direction.x = Input.GetAxisRaw ("Horizontal");
 		direction.y = Input.GetAxisRaw ("Vertical");
 
