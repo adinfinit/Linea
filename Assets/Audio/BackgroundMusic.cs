@@ -54,9 +54,9 @@ public class BackgroundMusic : MonoBehaviour
 
 	public float getTime ()
 	{
-		if (secondary.clip != null)
+		if (secondary.isPlaying)
 			return timeOffset + secondary.time;
-		if (primary.clip != null)
+		if (primary.isPlaying)
 			return timeOffset + primary.time;
 		return timeOffset + Time.time;
 	}
@@ -67,8 +67,8 @@ public class BackgroundMusic : MonoBehaviour
 
 		secondary.clip = song;
 		secondary.volume = 0.0f;
-		secondary.time = 0.0f;
-		secondary.Play ();
+		secondary.time = Time.time - Mathf.Floor(Time.time);
+		secondary.Play();
 
 		crossfade = 0.0f;
 	}
