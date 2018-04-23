@@ -7,3 +7,7 @@ You are a farmer infected by the dancing plague. The farm still needs to be mana
 Arrow keys: move // Space: jump // Attack: Ctrl //
 
 WARNING: Contains flashing lights.
+
+<img src="Screenshots/DancingPlague.png">
+
+<img src="Screenshots/DancingPlague.gif">
