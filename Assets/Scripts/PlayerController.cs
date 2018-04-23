@@ -73,14 +73,7 @@ public class PlayerController : AnimationEventTarget
 	Vector3 HeadCheck1 ()
 	{
 		var bounds = bodyCollider.bounds;
-		Vector3 center = new Vector3 (bounds.center.x + GroundSpread, bounds.max.y + GroundRadius);
-		return center;
-	}
-
-	Vector3 HeadCheck2 ()
-	{
-		var bounds = bodyCollider.bounds;
-		Vector3 center = new Vector3 (bounds.center.x - GroundSpread, bounds.max.y + GroundRadius);
+		Vector3 center = new Vector3 (bounds.center.x, bounds.max.y + GroundRadius);
 		return center;
 	}
 
@@ -97,8 +90,7 @@ public class PlayerController : AnimationEventTarget
 		grounded = hitsCircle (GroundCheck1 (), GroundRadius) ||
 		hitsCircle (GroundCheck2 (), GroundRadius);
 
-		hitHead = hitsCircle (HeadCheck1 (), GroundRadius) ||
-		hitsCircle (HeadCheck2 (), GroundRadius);
+		hitHead = hitsCircle (HeadCheck1 (), GroundRadius);
 
 		bool jumpJustPressedSticky = Time.fixedTime - jumpStickyTime < 0.1f;
 		bool jumpJustPressed = Input.GetButtonDown ("Jump");
@@ -280,7 +272,6 @@ public class PlayerController : AnimationEventTarget
 
 		Gizmos.color = hitHead ? Color.green : Color.blue;
 		Gizmos.DrawSphere (HeadCheck1 (), GroundRadius);
-		Gizmos.DrawSphere (HeadCheck2 (), GroundRadius);
 	}
 
 	#endregion

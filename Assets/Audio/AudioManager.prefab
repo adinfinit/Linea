@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mixer: {fileID: 24300002, guid: db045c6575d809443b0067e40c94a75f, type: 2}
-  numSFXPlayers: 10
+  numSFXPlayers: 3
 --- !u!114 &114908013354680834
 MonoBehaviour:
   m_ObjectHideFlags: 1
